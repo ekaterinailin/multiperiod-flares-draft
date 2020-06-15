@@ -1,0 +1,426 @@
+% mnras_template.tex
+%
+% LaTeX template for creating an MNRAS paper
+%
+% v3.0 released 14 May 2015
+% (version numbers match those of mnras.cls)
+%
+% Copyright (C) Royal Astronomical Society 2015
+% Authors:
+% Keith T. Smith (Royal Astronomical Society)
+
+% Change log
+%
+% v3.0 May 2015
+%    Renamed to match the new package name
+%    Version number matches mnras.cls
+%    A few minor tweaks to wording
+% v1.0 September 2013
+%    Beta testing only - never publicly released
+%    First version: a simple (ish) template for creating an MNRAS paper
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Basic setup. Most papers should leave these options alone.
+\documentclass[fleqn,usenatbib,letters]{mnras}%added "letters", a4paper is default
+
+% MNRAS is set in Times font. If you don't have this installed (most LaTeX
+% installations will be fine) or prefer the old Computer Modern fonts, comment
+% out the following line
+\usepackage{newtxtext,newtxmath}
+% Depending on your LaTeX fonts installation, you might get better results with one of these:
+%\usepackage{mathptmx}
+%\usepackage{txfonts}
+
+% Use vector fonts, so it zooms properly in on-screen viewing software
+% Don't change these lines unless you know what you are doing
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
+
+%%%%% AUTHORS - PLACE YOUR OWN PACKAGES HERE %%%%%
+
+% Only include extra packages if you really need them. Common packages are:
+\usepackage{graphicx}	% Including figure files
+\usepackage{amsmath}	% Advanced maths commands
+\usepackage{amssymb}	% Extra maths symbols
+\usepackage{cases}  %define a step function
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%% AUTHORS - PLACE YOUR OWN COMMANDS HERE %%%%%
+
+% Please keep new commands to a minimum, and use \newcommand not \def to avoid
+% overwriting existing commands. Example:
+%\newcommand{\pcm}{\,cm$^{-2}$}	% per cm-squared
+\newcommand{\FA}{TIC 277539431} %s12
+\newcommand{\FB}{TIC 44984200} %s10
+\newcommand{\FC}{TIC 237880881} %s1
+\newcommand{\FD}{EPIC 212035340} %c18
+\newcommand{\FE}{KIC 100004076} %q14
+\newcommand{\FF}{TIC 300741820} %s8
+\newcommand{\FG}{TIC 230120143} %s16
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%% TITLE PAGE %%%%%%%%%%%%%%%%%%%
+
+% Title of the paper, and the short title which is used in the headers.
+% Keep the title short and informative.
+\title[Where do flares on fully convective dwarfs occur?]{Where do flares on fully convective dwarfs occur?}
+
+% The list of authors, and the short list which is used in the headers.
+% If you need two or more lines of authors, add an extra line using \newauthor
+\author[E. Ilin et al.]{
+E. Ilin,$^{1}$\thanks{E-mail: eilin@aip.de}
+S. J. Schmidt,$^{1}$
+K. Poppenh\"ager$^{1}$
+S. J\"arvinen$^{1}$
+T. Carroll$^{1}$
+\\
+% List of institutions
+$^{1}$Leibniz Institute for Astrophysics Potsdam (AIP), An der Sternwarte 16, 14482 Potsdam, Germany\\
+%$^{2}$Department, Institution, Street Address, City Postal Code, Country\\
+%$^{3}$Another Department, Different Institution, Street Address, City Postal Code, Country
+}
+
+% These dates will be filled out by the publisher
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+
+% Enter the current year, for the copyright statements etc.
+\pubyear{2020}
+
+% Don't change these lines
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
+
+% Abstract of the paper
+\begin{abstract}
+We report the detection of multiperiod flares on X rapidly spinning fully convective dwarfs in TESS observations. The stars span a range of spectral type from M5 to L1, and rotate at periods between X and X hours. We modeled the flare light curves with a simple flare model light curve that is modified by rotational modulation as the flaring region moves in and out of view. We found that flares on fully convective ultra-fast rotators occur at XXX latitudes.
+\end{abstract}
+
+% Select between one and six entries from the list of approved keywords.
+% Don't make up new ones.
+\begin{keywords}
+keyword1 -- keyword2 -- keyword3
+\end{keywords}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+%%%%%%%%%%%%%%%%% BODY OF PAPER %%%%%%%%%%%%%%%%%%
+
+\section{Introduction}
+Magnetic fields are ubiquitous in M dwarfs above, at, and below the mass boundary \citep[$0.35M_\odot$;][]{chabrier1997} between fully convective and partially convective stars~\citep{morin2010, mclean2012}. Stellar flares are magnetic phenomena that occur in all these regimes, and superflares that enhance the optical brightness of a star by orders of magnitude have been detected on stars of all spectral types from solar analogs~\citep{maehara2012} to early L dwarfs~(e.g.,~\citealt{gizis2013}). Relating their properties to rotation and other activity indicators provides unique insights into the nature of these stars' magnetic fields~(e.g.,~\citealt{stelzer2016, paudel2018}).
+\\
+Stellar flares have been studied in a multitude of wavelengths, albeit rarely simultaneously. With Kepler~\citep{borucki2010} and TESS~\citep{ricker2015}, we are endowed with large monitoring data sets at cadences as high as 1-2 min. We can infer energy budgets, frequencies~\citep{davenport2016, yang2019, guenther2020}, and details about the energy dissipation process from simultaneous spectroscopic observations~\citep{silverberg2016}. However, the location of the flaring region eludes us in the overwhelming majority of cases.
+\\
+The location of flares is a key piece of information as it constrains the surface field strength and topology: Energetic flares require strong and dynamic magnetic fields that foster re-connection events~\citep{priest2002}. Moreover, the location of flares provides valuable input to dynamo theories: Magnetic field strength and geometry are tightly correlated with rotation~\citep{morin2008, morin2010, vidotto2014, see2019}. Yet the underlying dynamo mechanism that couples the two, both above and below this boundary, remains an open question~(\citealt{wright2018}, and references therein), and would benefit from observational constraints like the magnetically active latitudes of stars with well-known properties.
+\\
+The location of flares can at least partially explain the variety seen in flare light curve morphologies. The convex shape of a flare light curve in X-rays on V773 Tau~\citep{skinner1997} could be well-described by rotational modulation. Later, effects of rotation and eclipses have been put forward as an explanation for unusual flare light curves multiple times~\citep{stelzer1999,montmerle2000,johnstone2012}. Only few examples of unambiguously located stellar flares exist to date~\citep{wolter2008, peterson2010}.
+%A flare loop was detected using radio interferometry near the pole on the K star in the Algol binary system~\citep{peterson2010}.
+% Wolter+2008 localized a flare on a K2 near the pole, but not co-located with the spot (rather with the fringes of these regions) using Doppler Imaging
+On the Sun, the positions of large flares follow the cyclic latitude variations of sunspots~\citep{zhang2007}. This phenomenon is known as the butterfly diagram, and is crucial to the understanding of the solar dynamo~\citep{gnevyshev1977}
+\\
+A particularly intriguing class of objects that exhibit flares are fully convective ultrafast rotating dwarfs (FCUFRs). Their radio and X-ray emission violate the Guedel-Benz~\citep{guedel1993, benz1994} relation, the correlation between the two bands seen in earlier type stars, suggesting a transition in the magnetospheric conditions that govern flaring activity~~\citep{berger2010, mclean2012, cook2014, williams2014}. FCUFRs have rotation periods below a day, often below 12 h. Some are known to exhibit strong magnetic fields, partly exceeding the equipartition value of about 4 kG~\citep{shulyak2017} predicted for the saturated solar-type dynamo magnetic flux~\citep{pevtsov2003}. %These fields give rise to superflares energetic enough to allow us to determine their location on their surfaces from light curves.
+\\
+The observed morphology of a flare light curve is modulated by the flare's position on the stellar surface relative to the observer during the event~\citep{tovmassian2003}. Energetic superflares can last from less than an hour to over a day~\citep{kowalski2013,paudel2018b}, and so be observable for longer than an entire rotation period if they occur on a sufficiently rapidly rotating star. For favorable inclinations of the rotation axis, we expect to observe a modulation of the intrinsic flare light curve as the active region moves across the visible hemisphere, and disappears or re-appears behind the stellar limb. If the inclination is known, the active region's latitude can be unambiguously determined from this modulation.
+\\
+We searched for long duration superflares on FCUFR's in Kepler, K2, and TESS light curves and detected a total of five flares showing these modulations. We describe their properties and additional observations in Section \ref{sec:data}. We lay out a simple geometric model that generates signatures of rotationally modulated flares in Section \ref{sec:model}. The fits of our model to the data, and their interpretation are presented in Section \ref{sec:results}. Our concluding remarks and a summary can be found in Section \ref{sec:summary}.
+\section{Data and Observations}
+\label{sec:data}
+We searched the light curves of FCUFRs (spectral types $\sim$M5$-$L2, rotation periods $< 10$ d) in the Kepler, K2, and TESS archives for flares that were visible over multiple rotation periods (Section \ref{sec:photometry}). We found multiple candidates of which we chose five events on five different stars for a close investigation. Follow-up spectroscopic observations and stellar properties are detailed in Sections \ref{sec:salt} and \ref{sec:props}, respectively.
+%-------------------------------------------------------------------
+%\begin{table*}
+%\caption{Stellar parameters and multiperiod flare observations. Coordinates from~\citet{gaiacollaboration2018}.}
+% $a$ is the amplitude of the sine fit to the light curve relative to the median flux.
+%\label{tab:observations}
+%\input{tables/lcs.tex}
+%\hline
+%\multicolumn{10}{l}{$^a$ \citet{gizis2013}}\\
+%\end{tabular}
+%\end{table*}
+\subsection{Photometry}
+\label{sec:photometry}
+
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/EPIC212035340_inset.png}
+    \caption{Multiperiod flare in a 30-min cadence light curve of \FD.}
+    \label{fig:\FD}
+\end{figure}
+% --------------------------------------------------------
+
+
+\subsubsection{Kepler}
+\label{sec:photometryKepler}
+The Kepler (Koch et al. 2010) satellite obtained high precision photometric observations of thousands of stars in the Cygnus-Lyra region during its primary mission between 2009 and 2013. Besides being the most successful exoplanet finder mission to date, it has greatly advanced the research of physics of cool stars. For instance, the continuous monitoring at 1-minute cadence enabled the detection of energetic stellar flares on stars that were previously classified inactive from ground-based observations.
+\\
+However
+%, there was no dedicated program to observe stars with spectral type later than M6 (ultracool dwarfs, UCDs,~\citealt{kirkpatrick1997}) with Kepler. O
+only one FCUFR, an L1 dwarf, WISEP J190848.47+401106.8, was monitored during Q10-Q17 in 30-minute cadence, and during Q14 in 1-minute cadence~\citep{gizis2013}. The star rotates at 8.9 hours.
+%It has different designations in each quarter: KIC 100003560 (Quarter 10), KIC 100003605 (Quarter 11), KIC100003905 (Quarter 12), KIC 100004035 (Quarter 13), and KIC100004076 (Quarter 14).
+A long-duration flare occurs in the \texttt{PDCSAP\_Flux} light curve in Quarter 14~(Fig.~\ref{fig:fit\FE}, \FE).
+\subsubsection{K2}
+\label{sec:photometryK2}
+From 2013, when two of Kepler's reaction wheels failed, and the mission was recast as K2~\citep{howell2014}, until the spacecraft ran out of fuel in 2018, almost 20 $\sim$80
+days long observation campaigns were conducted in varying fields of view nearby the ecliptic plane. Despite its reduced pointing accuracy, K2 has observed hundreds of thousands of stars (albeit for a shorter period than Kepler), including a number of FCUFRs.
+\\
+Targeted observations of fully convective dwarfs took place throughout the mission~\citep{gizis2017, gizis2017b, paudel2018} but no peculiar events took place.
+%The first object with a superflare that was visible for 15.4 h in this series, EPIC 220186653 (Campaign 8, 30-minute cadence), an L1 dwarf, did not show any periodic modulation~\citep{gizis2017}. In a further study, two out of three UCDs were found flaring, but no long-duration flares took place during the observations~\citep{gizis2017b}. From the K2 UCDs studied in~\citet{paudel2018} three showed rotational modulation below 0.5 days, and exhibited impulsive short duration flares, but no long duration events.
+%\\
+In the study of three rapidly rotating UCDs in K2 long cadence light curves~\citep{paudel2019}, %EPIC 212027121 showed one flare in C18 that spans almost one rotation period without a clear modulation; EPIC 212136544 showed three flares in C18, each with a double peak structure on time scales comparable to its photometric period of about 7 hours; and
+\FD~(C18) showed a flare that spanned three periods of about 4.6 hours.
+While
+%EPIC 212136544, and especially
+\FD~showed intriguing morphology~(Fig. \ref{fig:\FD}), we did not investigate this case further here, because its light curve was obtained in 30-minute cadence, and the target was very faint ($J\approx 16$) and thus challenging for high-resolution spectroscopy that would have been needed to determine the inclination of its rotation axis.
+%The periodic modulation we find has nothing to do with the quasi-periodic oscillations observed for two large flares on Proxima Cen because its rotation period is about 83 days~\citep{vida2019}.
+\subsubsection{TESS}
+\label{sec:photometryTESS}
+The Transiting Exoplanet Survey
+Satellite, (TESS, \citealt{ricker2015}) is Kepler's successor mission. Its goal is to observe the full sky of stars brighter than $\sim13$ mag in 2-minute or 30-minute cadence for at least $\sim$27 days each to detect planetary candidates for follow-up observations with the James Webb Space Telescope~\citep{gardner2006}. Just as with Kepler, the obtained light curves contain valuable information not only about exoplanets but also about the stars themselves, and their flaring activity in particular.
+\\
+Our primary source of long duration flares on FCUFRs observed during TESS Cycle 1 (Southern hemisphere) and Cycle 2 (Northern Hemisphere, sector 14, 15, and 16) was the G022164 guest observer program led by J. Sebastian Pineda ("Exploring The Variability Of Ultracool Dwarfs With TESS"). We searched a total of 191+74 $\sim 27$ day long light curves obtained at 2-minute cadence on 110+32 targets for rotational modulation and long duration flares, and found three candidates, \FA~(Sector 12), \FB~(Sector 10), and \FG~(Sector 16).
+\\
+To complement our sample with dwarfs of types M5 and M6, we searched the sample of rapidly rotating M dwarfs with rotation periods below 4 h in TESS sectors 1 and 2 from ~\citet{zhan2019} and the M dwarf flare star sample in TESS Sectors 1-3 with rotation periods below 10 hours from~\citet{doyle2019} for flares. We found a long duration flare in \FF, Sector 8, an M6 dwarf that showed rotational modulation at 3.17 h.
+\subsection{Spectroscopy}
+\label{sec:salt}
+SALT observations, data reduction, v sin i
+%-----------------------------------------
+\input{tables/properties.tex}
+\subsection{Stellar Properties}
+\label{sec:props}
+To understand the flares and place them in context, we also characterized the stars they occurred on. We adopted spectral types from previous work that assigned types based on low-resolution optical spectroscopy (cite either here or in table).
+
+We cross-matched the list of six targets to the Two Micron All-Sky Survey \citep[2MASS;][]{Skrutskie2006} and Gaia \citep{gaiacollaboration2016} DR2 database \citep{gaiacollaboration2018} to obtain optical and infrared photometry and parallax distances. We used a cross-match radius of 10\arcsec, selecting the nearest match in each survey if more than one object fell within the matching radius. For the five objects with parallaxes in Gaia DR2, we adopt the inverse parallax as distance. For \FF, the excess of the astrometric noise was too high to use the parallax, so we calculated a distance based on the relationship between absolute $K_S$ and spectral type from \citet{dupuy2012}.
+
+We calculated radii based on the relationship between absolute $K_S$ magnitude and radius from \citet{Mann2015}. The uncertainties are based on a combination of the scatter in the relationship $\sim3$\% and the uncertainties on distance and $K_S$ magnitude.
+
+The lightcurves provided by TESS and Kepler do not have accurately calibrated absolute fluxes that are needed to characterize the energy of the flares. We calculate quiescent fluxes in the TESS and Kepler bands using their spectrophotometry. We first construct representative spectra for each spectral type that cover the TESS-Kepler-Gaia range (give numbers here) by combining the spectroscopic templates of \citet{Bochanski2007} and \citet{Schmidt2014a} and IR prism spectra from the spex prism library (cite). We then integrate over the Gaia lightcurve and normalize the SED to the Gaia value. To obtain fluxes in Kepler and TESS, we integrate over the response curves provided by each survey.
+
+The major uncertainty in the spectrophotometric fluxes is the underlying spectral energy distribution, so we assign uncertainties to the fluxes based on the fluxes calculated from the same Gaia flux but with a difference of one spectral type. We then converted flux to luminosity using the distances.
+
+Introduce $F_{f,s}(T_f)$ and $L_{s,q}$ (see Section \ref{ssec:flaringregion})
+
+Most info goes into Table~\ref{tab:stars} but we provide some details on individual targets below:
+
+\subsubsection{\FA}
+\label{sec:propsA}
+
+The dominating peak in the periodogram is at 4.56 h but the true period is at half the period, which we determined by examining the folded light curves for both cases.
+
+\subsubsection{\FB}
+\label{sec:propsB}
+
+\subsubsection{\FC}
+\label{sec:propsC}
+
+\subsubsection{\FE}
+\label{sec:propsE}
+
+\subsubsection{\FF}
+\label{sec:propsF}
+
+\subsubsection{\FG}
+\label{sec:propsG}
+
+%-------------------------------------
+\section{Flare modulation model}
+\label{sec:model}
+
+% --------------------------------------------------------
+\begin{figure*}
+	\includegraphics[width=17cm]{figures/model_illustration_annot2.png}
+    \caption{The flare modulation model. From left to right, the top row shows a clockwise rotating star (blue dots) with an active region (red dots), from the start of observation at $t_0$, to the peak flare time $t_f$, and further to local minima and maxima of the rotational modulation. Note that these do not correspond to the minima and maxima of the observed flux (red line in the bottom panel). The angular distance between the rotational pole (grey cross) and the intersection of the line of sight with the center of the star $O$ (black cross) is the inclination $i$. The illustration results in the observed light curve (red) in the bottom row. The underlying flare model from~\citet{davenport2014} is shown as grey squares.}
+    \label{fig:model}
+\end{figure*}
+% -----------------------------
+%Overview of the model
+Flaring regions on the Sun usually take complicated shapes that grow, shrink, brighten and dim non-uniformly with time~\citep{aschwanden2008}. The optical light curve of a flare event on a distant star hides most of this peculiar morphology. Although we expect that the flares in this study have a structure that is not resolved in Kepler and TESS data, the observed light curves can be adequately described as an empirical model flare~\citep{davenport2014} that is modulated by rotation.
+%However, the FCUFRs' rapid rotation magnifies the geometric modulation that is caused by the flaring region's moving in and out of view.
+\\
+We designed a simple model with six parameters that were fit simultaneously~(Fig. \ref{fig:model}). The flare peak time $t_f$, and its longitude $\phi_f$ at $t_f$ and latitude $\theta_f$ define time and location of the flare. The relative flare amplitude $a$ at $t_f$ and the full width at half the maximum flux of the flare (FWHM) determine the intrinsic shape of the light curve~\citep{davenport2014}. The last parameter is the inclination $i$ of the stellar rotation axis, which is constrained by independent observations. The geometric modulation is determined by $i$, $\theta_f$ and $\phi_f$ that we combined to give the distance of the flaring region from the limb. The model light curve was constructed in three steps:
+\begin{enumerate}
+    \item Determine the size $\omega/2$ of the flaring region from the flare's properties (Section \ref{ssec:flaringregion}). %, that is approximated as a spherical cap with radius $\omega/2$ on the surface of the star
+    \item Split the flaring region into spatial elements $(\theta, \phi)$ to calculate the spatially resolved rotational modulation of the flare flux (Section \ref{ssec:rotationalmodulation}).
+    \item Apply the modulation to the intrinsic flare light curve and sum the spatial elements to obtain the model luminosity $L_{model}$ (Section \ref{ssec:modellum}).
+\end{enumerate}
+
+\subsection{Size of the flaring region}
+\label{ssec:flaringregion}
+We modeled the flaring region $A$, that is the photospheric footpoint, from which the white light emission originates, as a uniformly bright spherical cap with an angular radius $\omega/2$ on the stellar surface (A1\footnote{We flag all our model assumptions with abbreviations of the form A\#.}). We assumed that the region did not migrate from its initial position at the start of the observation within the time of observation (A2). The region moved in and out of view as the star rotated so that its position relative to the line of sight of the observer determined the morphology of the obtained flare light curve.
+\\
+Assuming that the underlying flaring process was comparable to that of spectroscopically observed solar and stellar flares~\citep{hawley1992, kretzschmar2011}, we described the flare emission in the optical as dominated by a $T_f=10\,000$ K black body (A3), and determined the specific flare flux $F_{f,s}(T_f)$ of the region by integrating the spectral energy distribution within the TESS or the Kepler passbands~(see Section \ref{sec:props}). To simplify the calculation, we chose the pole-on view of a sphere with $A$ centered on the pole, and defined the angle between the pole and any given latitude $\theta$ as $\hat\theta=\pi/2 - \theta$. We then obtained the maximum observable flare luminosity $L_{f,max}$ by integrating the geometrically modulated $F_{f,s}(T_f)$ over $A$. The modulation is simply the cosine of the incidence angle, known as Lambert's cosine law~\citep{lambert1892}, that is equal to $\theta$ for an observer at infinite distance:
+\begin{eqnarray}
+    L_{f,max}&=&R^2  \displaystyle\int\int_A F_{f,s}(T_f) \cos\hat\theta \mathrm {d}A\\
+    &=& R^2 F_{f,s}(T_f) \displaystyle\int_{0}^{2\pi}\mathrm{d}\phi\int_{0}^{\omega/2}\mathrm{d}\hat\theta \sin\hat\theta\cos\hat\theta\\
+    &=& 2\pi R^2 F_{f,s}(T_f)\left[-\tfrac{1}{2} \cos^2\hat\theta\right]^{\omega/2}_0 \\
+    &=& \pi R^2 F_{f,s}(T_f) \sin^2\tfrac{\omega}{2}
+    \label{eq:Lmax1}
+\end{eqnarray}
+In the integration boundary, $\omega$ was the full opening angle of the cap which could take values between 0 and $\pi$. We fitted for flare parameters FWHM and $a$ in the regime where we viewed the flare at its maximum visibility, that is, viewed directly along the line of sight. The maximum observable flare flux was the product of $a$ with the quiescent stellar luminosity $L_{*}$ in the Kepler or the TESS band~(see Section \ref{sec:props}):
+\begin{equation}
+L_{f,max} = a \cdot L_{*},
+\label{eq:Lmax2}
+\end{equation}
+Combining Eqn.~\ref{eq:Lmax1} and~\ref{eq:Lmax2} yielded the angular radius $\omega/2$ of a circular region that produced a flare with a given amplitude $a$ and temperature $T_f$ on a star with radius $R$ and quiescent luminosity $L_{*}$:
+\begin{equation}
+\omega/2 = \arcsin\left(\sqrt{\dfrac{a \cdot L_{*}}{\pi R^2 F_{f,s}(T_f)}}\right)
+\end{equation}
+%The angular radius $\omega/2$ of the active region grows with the flare amplitude.
+\subsection{Rotational modulation}
+\label{ssec:rotationalmodulation}
+The flaring region with radius $\omega/2$ centered on $(\theta_{f},\phi_{f})$ was represented by an ensemble of $N$ evenly distributed spatial elements. It was assumed to emit uniformly (A1), so each spatial element emitted the same fraction $F_f(t)=L_f(t)/N$ of $L_f(t)$ at any given time $t$ during the flare. Before and after the flare the region emitted the average quiescent stellar flux. To model the maximum flare flux $F_f(t)$, we adopted the~\citet{davenport2014} flare model that fully describes a flare by its FWHM, amplitude $a$ and peak flux time $t_f$.
+\\
+The phase of the flaring region changed with rotation, but not its position on the sphere (A2). %To capture this geometric effect, we determined the distance . Accounting for the axis inclination $i$ we applied Lambert's cosine law to obtained the modulated flux.
+For ease of calculation, we converted $t$ to phase in units of radian $\hat t$ using the rotation rate of the star
+\begin{equation}
+\hat t = \dfrac{2\pi(t - t_{0})}{P},
+\end{equation}
+where $t_{0}$ marked the start time of the light curve that we selected for the model fit, and $P$ was the rotation period of the star.
+\\
+Every spatial element emitted a modified flux $F_f(\theta,\phi,\hat t)$ of its maximum flux $F_f(\hat t)$ towards an observer at infinite distance. The modification was again given by Lambert's cosine law with incidence angle $\alpha$:
+\begin{equation}
+   F_f(\theta,\phi,\hat t) = F_{f}(\hat t)\,\cos\alpha(\theta,\phi,\hat t).
+  % F(\theta,\phi,\hat t) &=& F_{f,s}(T_\f)  \left(\sin(\theta) \cos(i) + \cos(\theta) \sin(i) \cos(\hat t-\phi-\phi_0)\right)
+ 	\label{eq:lambert1}
+\end{equation}
+$\alpha$ was the distance from the intersection point $O$ of the line of sight with the center of the star to every spatial element ($\theta$, $\phi$)
+\begin{equation}
+    \alpha = \arccos\left(\sin\theta \cos i + \cos\theta \sin i \cos(\phi - \phi_0 - \hat t)\right),
+    \label{eq:alpha}
+\end{equation}
+where $\phi_0$ was the longitude that faced the observer at $t_{0}$. Our model did not account for limb darkening or brightening effects, equivalent to the assumption that the flaring regions had no significant height in the optical (A4).% \citet{juvan2018} applied quadratic limb darkening.
+\\
+To determine when the spatial element was behind the limb we calculated the fractional day length $D$. Applying the spherical law of cosines to the triangle between $O$, a point on the limb at a given latitude, and the rotational pole of the star we obtained
+\begin{equation}
+    D = \tfrac{1}{\pi}\arccos\left(-\tan\theta \tan(\tfrac{\pi}{2}-i)\right).
+    \label{eq:lambert2}
+\end{equation}
+Using $D$ and $\phi_0$ we defined a step function $d(\hat t)$ that was 1 when the spatial element was visible, and 0 when it was hidden:
+\begin{numcases}{d(\theta,\phi,\hat t)=}
+1, & if $ -D/2 < \dfrac{\phi -\phi_0 - \hat t }{ 2 \pi}  < D/2$\\
+0, & else
+\end{numcases}
+Finally, we combined $d$ with $F_f(\theta,\phi,\hat t)$ to obtain the modulated flux of a spatial element in the flaring region
+\begin{equation}
+    F_{model}(\theta,\phi,\hat t) = F_f(\theta,\phi,\hat t)\,d(\theta,\phi,\hat t).
+    \label{eq:lambert3}
+\end{equation}
+%We  map the intrinsic flaring luminosity $L_f(t)$ to $L_f(\hat t)$ and divide it by the number of spatial elements to obtain $dL_f(\hat t)/dA=F_f(\hat t)$.
+\subsection{Model luminosity}
+\label{ssec:modellum}
+Finally, we calculated the model luminosity $L_{model}$ as a function of $\hat t$ by summing up all spatial elements. For $N\to\infty$, $L_{model}$ became the surface integral over the flaring region $A$:
+
+\begin{equation}
+    L_{model}(\hat t) = \displaystyle\int\int_AF_{model}(\theta,\phi,\hat t)\,\mathrm{d}A
+              %        &=& R^2\displaystyle\int\int F(\theta,\phi,\hat t)d(\theta,\phi,\hat t)\cos(\theta)\mathrm{d}\theta\mathrm{d}\phi\\
+    \label{eq:Lmodel}
+\end{equation}
+The integration bounds for a circular spot could in principle be found, but we preferred the numerical approximation in the implementation that will allow us to model more complicated shapes in the future and spared us some hideous integrals.
+\citet{juvan2018} used a similar approach to model starspots and transits.
+\subsection{Fitting the model to the data}
+\label{ssec:fittingmodeltodata}
+We removed the dominating starspot modulation with a simple sine fit with the dominating period obtained from a Lomb-Scargle periodogram~\citep{lomb1976, scargle1982}, and assumed that the star was uniform otherwise (A5).%checked periodograms, only aliases, but otherwise good fits.
+We constructed a likelihood function assuming that the uncertainty in flux (\texttt{PDCSAP\_FLUX\_ERR}) was Gaussian. Our priors were uniform for all parameters but $i$, for which we adopted a Gaussian prior. Using the MCMC method~(\texttt{emcee},~\citealt{foreman_mackey2013}) we determined the posterior distributions of the intrinsic flare properties FWHM, $t_f$, and $a$; the properties of the flaring region, $\theta_f$ and $\phi_f$; and an updated distribution of the inclination $i$ of the star's rotation axis.
+% More caveats perhaps not relevant
+%Also did not account for gravitational darkening that stems from rotation and could have an effect on the contrast of the flare, and alter the geometric setup from a sphere to an ellipsoid~\citep{sengupta2010}
+\section{Results}
+\label{sec:results}
+\input{tables/results.tex}
+We fitted the flare modulation model to the data. Our results are summarized in Table \ref{tab:results}.
+\subsection{\FA}
+
+\subsection{\FB}
+\subsection{\FC}
+
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/23_12_2019_13_28_TIC237880881_flarefit_50retrievals.png}
+    \caption{Double-flare fit to \FC, assuming that both flares originate from the same active region ($\theta_f$ is the same for both flares).}
+    \label{fig:fit\FC}
+\end{figure}
+% --------------------------------------------------------
+This light curve contains two overlapping flares. Since the first flare's gradual decay adds to the overall flux in the second flare we fitted both flares simultaneously.
+\\
+\citet{gizis2017b} discussed the possibility of sympathetic flaring in ultracool dwarfs that is triggered by fast mode MHD waves excited by the first flare that propagates across an inhomogeneous corona to trigger a second flare, as is the case on the Sun~\citep{uchida1968}. They concluded that such flares are characterized by a time separation between flares that is inconsistent with a Poisson process, and a lower amplitude second flare. The flares in \FC have both traits. However, the flares are separated by 3-4 hours which suggests travel speeds of less than 40 km/s pole to pole, lower than the lowest observed speeds on the Sun at 200 km/s. Futhermore, on the Sun these waves are driven by erupting CMEs which are suppressed by strong dipolar large scale fields of mid-M dwarfs~\citep{alvaradogomez2018} (but in a 75G large scale field >3e32 erg flares can overcome the suppression and erupt anyways.)
+
+%\subsection{\FD}
+\subsection{\FE}
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/13_12_2019_10_18_KIC100004076_flarefit_50retrievals.png}
+    \caption{Flare fit to \FE.}
+    \label{fig:fit\FE}
+\end{figure}
+% --------------------------------------------------------
+We recovered the extremely stable 8.9 h periodicity, measured in five Kepler quarters from \citep{gizis2013}. The flare on \FE appeared impulsive and short, but the excess flux observed during the rotation period after the impulsive rise and decay in excess of the rotational modulation was a hint that the flare could in fact have been much stronger and lasted multiple periods. However, the MCMC chain did not converge because the photon noise dominated.
+
+
+%---------------------------------------------------------------------
+\section{Discussion and Conclusions}
+\label{sec:summary}
+Why do we see rotational modulation in all cases but not in the flares? Possible solution: misalignment of rotational axis and magnetic dipole axis, like possibly in 	NLTT 33370 AB\citep{mclean2011}. See also ~\citep{pineda2017}
+\\
+energy distributions of white light flares in ultracool dwarfs follow power laws across several orders of magnitude in flare energy~\citep{gizis2017b, paudel2018}. Tentative evidence of reduced frequency of low energy flares resulting in a flatter distribution.
+\\
+When we do flare statistics, should we account for the flaring region size  and distribution of positions on the stellar surface? We are currently underestimating the flare energies because most flares are not observed on the center of the observable hemisphere of the star.
+\\
+Can our findings be explained by quasi-periodic pulsations (QPPs), that are a common feature of solar flares in a variety of wavelengths~\citep{pugh2016}, instead?
+QPPs were observed during superflares on solar-type and low-mass stars, for istance on YZ CMi (M4.5e) with a period of 32 minutes~\citep{anfinogentov2013}, and on KIC 9655129 (K1.5V eclipsing binary) with two periods, 78 and 32 min~\citep{pugh2015}.
+The relation between properties of QPPs and properties of the host flare are open questions~\citep{mclaughlin2018}. Notably, there is no evidence for a correlation between flare energy and the period of the QPP~\citep{pugh2016}.
+\\
+The spot that causes the rotational modulation should be big enough and/or close enough to the pole to always be in view. Could the spot be the flaring region?
+\\
+Do we want Doppler Imaging if feasible, or multiwavelength observations similar to
+the Berger series? Will they be observable in radio, and show periodic radio flares, too? The next step is to understand the magnetic field structure and in particular if the rotation and magnetic axes are misaligned?
+\section*{Acknowledgements}
+
+thank helpful colleagues, acknowledge funding agencies, telescopes and facilities used
+This research has made use of the SIMBAD database,
+operated at CDS, Strasbourg, France~\citep{wenger2000}
+
+This publication makes use of data products from the Two Micron All Sky Survey, which is a joint project of the University of Massachusetts and the Infrared Processing and Analysis Center/California Institute of Technology, funded by the National Aeronautics and Space Administration and the National Science Foundation.
+
+This work has made use of data from the European Space Agency (ESA) mission {\it Gaia} (\url{https://www.cosmos.esa.int/gaia}), processed by the {\it Gaia} Data Processing and Analysis Consortium (DPAC, \url{https://www.cosmos.esa.int/web/gaia/dpac/consortium}). Funding for the DPAC has been provided by national institutions, in particular the institutions participating in the {\it Gaia} Multilateral Agreement.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+
+% The best way to enter references is to use BibTeX:
+
+\bibliographystyle{mnras}
+\bibliography{references}
+
+
+% Alternatively you could enter them by hand, like this:
+% This method is tedious and prone to error if you have lots of references
+%\begin{thebibliography}{99}
+%\bibitem[\protect\citeauthoryear{Author}{2012}]{Author2012}
+%Author A.~N., 2013, Journal of Improbable Astronomy, 1, 1
+%\bibitem[\protect\citeauthoryear{Others}{2013}]{Others2013}
+%Others S., 2012, Journal of Interesting Stuff, 17, 198
+%\end{thebibliography}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+
+\section{Some extra material}
+
+additional material which would interrupt the flow of the main paper
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Don't change these lines
+\bsp	% typesetting comment
+\label{lastpage}
+\end{document}
+
+% End of mnras_template.tex
