@@ -200,10 +200,19 @@ spectral orders, wavelength calibration, and a self-consistent continuum fit
 to the full two-dimensional (2D) image of extracted orders.
 \subsubsection{$v\sin i$}
 \label{subsec:vsini}
+
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/vsini.png}
+    \caption{Grey lines: Third order polynomial fits to the calibration functions for three different template spectra. Blue and red crosses: Fitted FWHM from the CCFs of SALT spectra with uncertainties.}
+    \label{fig:vsini}
+\end{figure}
+% --------------------------------------------------------
+
 For the $v\sin i$ inference we followed the cross-correlation procedure detailed in \citet{reiners2012}.
 The technique uses the cross-correlation functions of rotationally broadened template spectra to calibrate a relation between the FWHM of the function and $v\sin i$. We calibrated the normalized cross-correlation function using high-resolution optical CARMENES spectra of CN Leo (M6), LP 731-058 (M6.5), and Teegarden's Star (M7) for which~\citet{reiners2018} determined $v\sin i < 3$ km/s using the same method but different reference stars, and utilizing different parts of the spectrum. We broadened these three template spectra using the \texttt{eniric}~\citep{neal2019} software assuming a limb darkening coefficient $\epsilon=0.6$ in the range from $1$ to $60$ km/s with a resolution of $1$ km/s. Then we measured the FWHM to derive a calibration function for $v\sin i$.
 \\
-After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$\AA surrounding the Rb 7948\AA line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sini$ in the $10-50$ km/s range. The lower bound for our uncertainty on FWHM is given by the resolution of our spectra as $1.3$ km/s. We fit a 3rd order polynomial to the calibration function, and use the fit to propagate the uncertainty on FWHM to the resulting $v\sin i$ values.
+After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$\AA surrounding the Rb 7948\AA line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sini$ in the $10-50$ km/s range. The lower bound for our uncertainty is given by the resolution of our spectra and the sensitivity of FWHM to changes in $v\sin i$. We fit a 3rd order polynomial to the calibration function, and use the fit to propagate the uncertainty on FWHM to the resulting $v\sin i$ values~(Fig. \ref{fig:vsini}). We found uncertainties on $v\sin i$ in the $1.2-1.9$ km/s range for individual pairs of templates and spectra. Taking the average of all three templates the uncertainty naturally decreased to $0.8-1.0$ km/s. 
 \\
 We validated our results by comparing with randomly chosen spectra at $v\sin i$ between $14$ km/s and $42$ km/s that had high-resolution optical spectra~\citep{reiners2018} listed in the CARMENES input catalog\citep{jeffers2018}\footnote{Spectra publicly available on \url{http://carmenes.cab.inta-csic.es/gto/jsp/reinersetal2018.jsp}}. We found them consistent with our results within uncertainties. From these comparisons we estimated our uncertainty on individual $v\sin i$ to be $\approx 3$ km/s.
 %eniric
@@ -231,11 +240,11 @@ Most info goes into Table~\ref{tab:stars} but we provide some details on individ
 \label{sec:propsA}
 %TIC 277
 The dominating peak in the periodogram is at 4.56 h but the true period is at half the period, which we determined by examining the folded light curves for both cases.
-Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=37.7\pm3$ km/s for \FA.
+Using the method described in Section \ref{subsec:vsini}, we derived \input{values/277_vsini.txt} for \FA.
 \subsubsection{\FB}
 \label{sec:propsB}
 %TIC 449
-Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=34\pm3$ km/s for \FB.
+Using the method described in Section \ref{subsec:vsini}, we derived \input{values/449_vsini.txt} for \FB.
 
 \subsubsection{\FC}
 \label{sec:propsC}
