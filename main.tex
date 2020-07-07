@@ -188,13 +188,22 @@ To complement our sample with dwarfs of types M5 and M6, we searched the sample 
 \subsection{Spectroscopy}
 \label{sec:salt}
 \subsubsection{SALT Observations and Data Reduction}
-SALT observations, data reduction, 
+SALT observations,
+\\
+Data reduction was done with the PEPSI data reduction software which is described in more detail in
+\citet{2018Strassmeier}.
+It relies on adaptive selection of parameters by using statistical inference
+and robust estimators. The standard reduction steps include bias overscan
+detection and subtraction, scattered light extraction from the inter-order
+space and subtraction, definition of \'echelle orders, optimal extraction of
+spectral orders, wavelength calibration, and a self-consistent continuum fit
+to the full two-dimensional (2D) image of extracted orders.
 \subsubsection{$v\sin i$}
 \label{subsec:vsini}
 For the $v\sin i$ inference we followed the cross-correlation procedure detailed in \citet{reiners2012}.
 The technique uses the cross-correlation functions of rotationally broadened template spectra to calibrate a relation between the FWHM of the function and $v\sin i$. We calibrated the normalized cross-correlation function using high-resolution optical CARMENES spectra of CN Leo (M6), LP 731-058 (M6.5), and Teegarden's Star (M7) for which~\citet{reiners2018} determined $v\sin i < 3$ km/s using the same method but different reference stars, and utilizing different parts of the spectrum. We broadened these three template spectra using the \texttt{eniric}~\citep{neal2019} software assuming a limb darkening coefficient $\epsilon=0.6$ in the range from $1$ to $60$ km/s with a resolution of $1$ km/s. Then we measured the FWHM to derive a calibration function for $v\sin i$.
 \\
-After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$ \AA\;surrounding the Rb 7948\AA\;line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sini$ in the $10-50$ km/s range.
+After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$\AA surrounding the Rb 7948\AA line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sini$ in the $10-50$ km/s range. The lower bound for our uncertainty on FWHM is given by the resolution of our spectra as $1.3$ km/s. We fit a 3rd order polynomial to the calibration function, and use the fit to propagate the uncertainty on FWHM to the resulting $v\sin i$ values.
 \\
 We validated our results by comparing with randomly chosen spectra at $v\sin i$ between $14$ km/s and $42$ km/s that had high-resolution optical spectra~\citep{reiners2018} listed in the CARMENES input catalog\citep{jeffers2018}\footnote{Spectra publicly available on \url{http://carmenes.cab.inta-csic.es/gto/jsp/reinersetal2018.jsp}}. We found them consistent with our results within uncertainties. From these comparisons we estimated our uncertainty on individual $v\sin i$ to be $\approx 3$ km/s.
 %eniric
@@ -236,7 +245,7 @@ Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=34
 
 \subsubsection{\FF}
 \label{sec:propsF}
-The SALT spectrum for \FF had two components, one very broad, and a narrow one. We hypothesize that we are facing a ultracool binary with mass ratio $q\approx 1$, of which one component has a different inclination that the other. 
+The SALT spectrum for \FF had two components, one very broad, and a narrow one. We hypothesize that we are facing a ultracool binary with mass ratio $q\approx 1$, of which one component has a different inclination that the other.
 
 \\
 
