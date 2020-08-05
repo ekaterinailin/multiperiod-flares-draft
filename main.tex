@@ -123,7 +123,7 @@ The location of flares is a key piece of information as it constrains the surfac
 The location of flares can at least partially explain the variety seen in flare light curve morphologies. The convex shape of a flare light curve in X-rays on V773 Tau~\citep{skinner1997} could be well-described by rotational modulation. Later, effects of rotation and eclipses have been put forward as an explanation for unusual flare light curves multiple times~\citep{stelzer1999,montmerle2000,johnstone2012}. Only few examples of unambiguously located stellar flares exist to date~\citep{wolter2008, peterson2010}.
 %A flare loop was detected using radio interferometry near the pole on the K star in the Algol binary system~\citep{peterson2010}.
 % Wolter+2008 localized a flare on a K2 near the pole, but not co-located with the spot (rather with the fringes of these regions) using Doppler Imaging
-On the Sun, the positions of large flares follow the cyclic latitude variations of sunspots~\citep{zhang2007}. This phenomenon is known as the butterfly diagram, and is crucial to the understanding of the solar dynamo~\citep{gnevyshev1977}
+On the Sun, the positions of large flares follow the cyclic latitude variations of sunspots~\citep{zhang2007}. This phenomenon is known as the butterfly diagram, and is crucial to the understanding of the solar dynamo~\citep{gnevyshev1977}% recently observed on a star: Netto (2020)
 \\
 A particularly intriguing class of objects that exhibit flares are fully convective ultrafast rotating dwarfs (FCUFRs). Their radio and X-ray emission violate the Guedel-Benz~\citep{guedel1993, benz1994} relation, the correlation between the two bands seen in earlier type stars, suggesting a transition in the magnetospheric conditions that govern flaring activity~~\citep{berger2010, mclean2012, cook2014, williams2014}. FCUFRs have rotation periods below a day, often below 12 h. Some are known to exhibit strong magnetic fields, partly exceeding the equipartition value of about 4 kG~\citep{shulyak2017} predicted for the saturated solar-type dynamo magnetic flux~\citep{pevtsov2003}. %These fields give rise to superflares energetic enough to allow us to determine their location on their surfaces from light curves.
 \\
@@ -370,12 +370,32 @@ We constructed a likelihood function assuming that the uncertainty in flux (\tex
 % More caveats perhaps not relevant
 %Also did not account for gravitational darkening that stems from rotation and could have an effect on the contrast of the flare, and alter the geometric setup from a sphere to an ellipsoid~\citep{sengupta2010}
 \section{Results}
+We fitted our model with either one or two flares occurring on a single active region. We did not attempt to fit multiple active regions. The probability of two large flares occurring within a very short period is very low if we assume that flare times follow a Poission process in time, like it does on the Sun and most flaring stars. \textbf{Calculate the actual probability using the FFD analysis.}
 \label{sec:results}
+\begin{table*}
+\centering
+\caption{Properties of multi-period flares}
+\label{tab:stars}
 \input{tables/results.tex}
+
+\end{table*}
 We fitted the flare modulation model to the data. Our results are summarized in Table \ref{tab:results}.
 \subsection{\FA}
 
+
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/08_07_2020_11_48_TIC277539431_flarefit_50retrievals.png}
+    \caption{Flare fit to \FA.}
+    \label{fig:fit\FA}
+\end{figure}
 \subsection{\FB}
+We fitted the single flare model (Fig. \ref{fig:fit\FB}), we also \textbf{fitted a model with two flares in a single active region}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/02_08_2020_17_44_TIC44984200_flarefit_50retrievals.png}
+    \caption{Single-flare fit to \FB.}
+    \label{fig:fit\FB}
+\end{figure}
 \subsection{\FC}
 
 % --------------------------------------------------------
@@ -398,26 +418,45 @@ This light curve contains two overlapping flares. Since the first flare's gradua
     \label{fig:fit\FE}
 \end{figure}
 % --------------------------------------------------------
-We recovered the extremely stable 8.9 h periodicity, measured in five Kepler quarters from \citep{gizis2013}. The flare on \FE appeared impulsive and short, but the excess flux observed during the rotation period after the impulsive rise and decay in excess of the rotational modulation was a hint that the flare could in fact have been much stronger and lasted multiple periods. However, the MCMC chain did not converge because the photon noise dominated.
+We recovered the extremely stable 8.9 h periodicity, measured in five Kepler quarters from \citep{gizis2013}. The flare on \FE appeared impulsive and short, but the excess flux observed during the rotation period after the impulsive rise and decay in excess of the rotational modulation was a hint that the flare could in fact have been much stronger and lasted multiple periods. However, the MCMC chain did not converge, and ended in an extreme underlyin flare that \textbf{would likely have blown blow up the star}~(Fig. \ref{fig:fit\FE}). \textbf{We therefore fitted the alternative model in which the short first flare is a precursor flare, and not part of the modulated event of which we in fact miss the peak.}
 
 
 %---------------------------------------------------------------------
-\section{Discussion and Conclusions}
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Do flares in FCUFRs occur at the poles?}
+Our results suggest that large gradual flares on stars with a large dominating spot prefer to occur at high latitudes. Potentially, the occurrence of such flares and the presence of such spots are physically related.
+
+Given the small number of such flares, it could also be a selection effect. If flares on FCUFRs occur at all latitudes, it could just be that detectability of multiperiod flares is lower for low-latitude flares. Assuming that $i$ is uniformly distributed we find low detectability at the equator at low inclinations if the primary peak is less pronounced, and low detectability at high inclinations if the secondary peak is confused for an independent event because the the secondary peak is separated by a full half period from the primary peak. On the other hand, low detectability at the pole is found at high inclination because the primary peak height is geometrically reduced, and at low inclination because the secondary peak is less pronounced because the geometrical modulation declines.
+
+
+Another explanation could be that flares close to the equator occur on active regions with shapes that are not modulated by rotation, as, for instance, active belt shapes at fixed latitudes. Alternatively, equatorial flares may light up the entire stellar atmosphere thereby precluding any modulation. However, we did not find any periodically modulated flares on stars without clean sinusoidal variability. 
+
+A further possibility is that TESS cannot detect low-latitude flares because they are much hotter than 10 000 K so that the TESS band cannot detect them.
+
+It may also be that flares close to the equator are mostly much more impulsive and do not become multiperiodic. This raises the question why are polar flares more likely to be so gradual? Is this a feature of large polar spots in contrast with more evenly distributed active region as we infer for mid-M dwarfs? One way of adressing this question is to look at the distributions of flare properties on our targets. Several of them exhibit smaller and more impulsive flares in the same light curve, and also in different sectors. 
+\subsection{FFD analysis of FCUFR light curves}
+
+Do the multiperiod flares fit in with the FFDs for the rest of the flare sample in each target?
+
+The energy distributions of white light flares in ultracool dwarfs follow power laws across several orders of magnitude in flare energy~\citep{gizis2017b, paudel2018}. 
+%Why do we see rotational modulation in all cases but not in the flares? Possible solution: misalignment of rotational axis and magnetic dipole axis, like possibly in 	NLTT 33370 AB\citep{mclean2011}. See also ~\citep{pineda2017}
+%\\
+%
+%\\
+%When we do flare statistics, should we account for the flaring region size  and distribution of positions on the stellar surface? We are currently underestimating the flare energies because most flares are not observed on the center of the observable hemisphere of the star.
+%\\
+%Can our findings be explained by quasi-periodic pulsations (QPPs), that are a common feature of solar flares in a variety of wavelengths~\citep{pugh2016}, instead?
+%QPPs were observed during superflares on solar-type and low-mass stars, for istance on YZ CMi (M4.5e) with a period of 32 minutes~\citep{anfinogentov2013}, and on KIC 9655129 (K1.5V eclipsing binary) with two periods, 78 and 32 min~\citep{pugh2015}.
+%The relation between properties of QPPs and properties of the host flare are open questions~\citep{mclaughlin2018}. Notably, there is no evidence for a correlation between flare energy and the period of the QPP~\citep{pugh2016}.
+%\\
+%The spot that causes the rotational modulation should be big enough and/or close enough to the pole to always be in view. Could the spot be the flaring region?
+%\\
+%Do we want Doppler Imaging if feasible, or multiwavelength observations similar to
+%the Berger series? Will they be observable in radio, and show periodic radio flares, too? The next step is to understand the magnetic field structure and in particular if the rotation and magnetic axes are misaligned?
+\section{Summary and Conclusions}
 \label{sec:summary}
-Why do we see rotational modulation in all cases but not in the flares? Possible solution: misalignment of rotational axis and magnetic dipole axis, like possibly in 	NLTT 33370 AB\citep{mclean2011}. See also ~\citep{pineda2017}
-\\
-energy distributions of white light flares in ultracool dwarfs follow power laws across several orders of magnitude in flare energy~\citep{gizis2017b, paudel2018}. Tentative evidence of reduced frequency of low energy flares resulting in a flatter distribution.
-\\
-When we do flare statistics, should we account for the flaring region size  and distribution of positions on the stellar surface? We are currently underestimating the flare energies because most flares are not observed on the center of the observable hemisphere of the star.
-\\
-Can our findings be explained by quasi-periodic pulsations (QPPs), that are a common feature of solar flares in a variety of wavelengths~\citep{pugh2016}, instead?
-QPPs were observed during superflares on solar-type and low-mass stars, for istance on YZ CMi (M4.5e) with a period of 32 minutes~\citep{anfinogentov2013}, and on KIC 9655129 (K1.5V eclipsing binary) with two periods, 78 and 32 min~\citep{pugh2015}.
-The relation between properties of QPPs and properties of the host flare are open questions~\citep{mclaughlin2018}. Notably, there is no evidence for a correlation between flare energy and the period of the QPP~\citep{pugh2016}.
-\\
-The spot that causes the rotational modulation should be big enough and/or close enough to the pole to always be in view. Could the spot be the flaring region?
-\\
-Do we want Doppler Imaging if feasible, or multiwavelength observations similar to
-the Berger series? Will they be observable in radio, and show periodic radio flares, too? The next step is to understand the magnetic field structure and in particular if the rotation and magnetic axes are misaligned?
 \section*{Acknowledgements}
 
 thank helpful colleagues, acknowledge funding agencies, telescopes and facilities used
