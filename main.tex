@@ -213,7 +213,7 @@ to the full two-dimensional (2D) image of extracted orders.
 For the $v\sin i$ inference we followed the cross-correlation procedure detailed in \citet{reiners2012}.
 The technique uses the cross-correlation functions of rotationally broadened template spectra to calibrate a relation between the FWHM of the function and $v\sin i$. We calibrated the normalized cross-correlation function using high-resolution optical CARMENES spectra of CN Leo (M6), LP 731-058 (M6.5), and Teegarden's Star (M7) for which~\citet{reiners2018} determined $v\sin i < 3$ km/s using the same method but different reference stars, and utilizing different parts of the spectrum. We broadened these three template spectra using the \texttt{eniric}~\citep{neal2019} software assuming a limb darkening coefficient $\epsilon=0.6$ in the range from $1$ to $60$ km/s with a resolution of $1$ km/s. Then we measured the FWHM to derive a calibration function for $v\sin i$.
 \\
-After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$\AA surrounding the Rb 7948\AA line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sini$ in the $10-50$ km/s range. The lower bound for our uncertainty is given by the resolution of our spectra and the sensitivity of FWHM to changes in $v\sin i$. We fit a 3rd order polynomial to the calibration function, and use the fit to propagate the uncertainty on FWHM to the resulting $v\sin i$ values~(Fig. \ref{fig:vsini}). We found uncertainties on $v\sin i$ in the $1.2-1.9$ km/s range for individual pairs of templates and spectra. Taking the average of all three templates the uncertainty naturally decreased to $0.8-1.0$ km/s. 
+After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$\AA surrounding the Rb 7948\AA line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sin i$ in the $10-50$ km/s range. The lower bound for our uncertainty is given by the resolution of our spectra and the sensitivity of FWHM to changes in $v\sin i$. We fit a 3rd order polynomial to the calibration function, and use the fit to propagate the uncertainty on FWHM to the resulting $v\sin i$ values~(Fig. \ref{fig:vsini}). We found uncertainties on $v\sin i$ in the $1.2-1.9$ km/s range for individual pairs of templates and spectra. Taking the average of all three templates the uncertainty naturally decreased to $0.8-1.0$ km/s.
 \\
 We validated our results by comparing with randomly chosen spectra at $v\sin i$ between $14$ km/s and $42$ km/s that had high-resolution optical spectra~\citep{reiners2018} listed in the CARMENES input catalog\citep{jeffers2018}\footnote{Spectra publicly available on \url{http://carmenes.cab.inta-csic.es/gto/jsp/reinersetal2018.jsp}}. We found them consistent with our results within uncertainties. From these comparisons we estimated our uncertainty on individual $v\sin i$ to be $\approx 3$ km/s.
 %eniric
@@ -249,29 +249,20 @@ Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\
 
 \subsubsection{\FC}
 \label{sec:propsC}
-
 \subsubsection{\FE}
 \label{sec:propsE}
-
 \subsubsection{\FF}
 \label{sec:propsF}
 The SALT spectrum for \FF had two components, one very broad, and a narrow one. We hypothesize that we are facing a ultracool binary with mass ratio $q\approx 1$, of which one component has a different inclination that the other.
-
 \\
-
 What are their SpT?
-
 \\
-
 To determine the inclination from $v\sin i$ the SpT is required, because we need the radius
-
 \subsubsection{\FG}
 \label{sec:propsG}
-
 %-------------------------------------
 \section{Flare modulation model}
 \label{sec:model}
-
 % --------------------------------------------------------
 \begin{figure*}
 	\includegraphics[width=17cm]{figures/model_illustration_annot2.png}
@@ -422,7 +413,7 @@ We recovered the extremely stable 8.9 h periodicity, measured in five Kepler qua
 
 \subsection{Active region radii}
 
-\textbf{We give the sizes $\omega/2$ of the flaring regions from our model fits in Fig. XXX} 
+\textbf{We give the sizes $\omega/2$ of the flaring regions from our model fits in Fig. XXX}
 %---------------------------------------------------------------------
 \section{Discussion}
 \label{sec:discussion}
@@ -433,16 +424,16 @@ Our results suggest that large gradual flares on stars with a large dominating s
 Given the small number of such flares, it could also be a selection effect. If flares on FCUFRs occur at all latitudes, it could just be that detectability of multiperiod flares is lower for low-latitude flares. Assuming that $i$ is uniformly distributed we find low detectability at the equator at low inclinations if the primary peak is less pronounced, and low detectability at high inclinations if the secondary peak is confused for an independent event because the the secondary peak is separated by a full half period from the primary peak. On the other hand, low detectability at the pole is found at high inclination because the primary peak height is geometrically reduced, and at low inclination because the secondary peak is less pronounced because the geometrical modulation declines.
 
 
-Another explanation could be that flares close to the equator occur on active regions with shapes that are not modulated by rotation, as, for instance, active belt shapes at fixed latitudes. Alternatively, equatorial flares may light up the entire stellar atmosphere thereby precluding any modulation. However, we did not find any periodically modulated flares on stars without clean sinusoidal variability. 
+Another explanation could be that flares close to the equator occur on active regions with shapes that are not modulated by rotation, as, for instance, active belt shapes at fixed latitudes. Alternatively, equatorial flares may light up the entire stellar atmosphere thereby precluding any modulation. However, we did not find any periodically modulated flares on stars without clean sinusoidal variability.
 
 A further possibility is that TESS cannot detect low-latitude flares because they are much hotter than 10 000 K so that the TESS band cannot detect them.
 
-It may also be that flares close to the equator are mostly much more impulsive and do not become multiperiodic. This raises the question why are polar flares more likely to be so gradual? Is this a feature of large polar spots in contrast with more evenly distributed active region as we infer for mid-M dwarfs? One way of adressing this question is to look at the distributions of flare properties on our targets. Several of them exhibit smaller and more impulsive flares in the same light curve, and also in different sectors. 
+It may also be that flares close to the equator are mostly much more impulsive and do not become multiperiodic. This raises the question why are polar flares more likely to be so gradual? Is this a feature of large polar spots in contrast with more evenly distributed active region as we infer for mid-M dwarfs? One way of adressing this question is to look at the distributions of flare properties on our targets. Several of them exhibit smaller and more impulsive flares in the same light curve, and also in different sectors.
 \subsection{FFD analysis of FCUFR light curves}
 
 Do the multiperiod flares fit in with the FFDs for the rest of the flare sample in each target?
 
-The energy distributions of white light flares in ultracool dwarfs follow power laws across several orders of magnitude in flare energy~\citep{gizis2017b, paudel2018}. 
+The energy distributions of white light flares in ultracool dwarfs follow power laws across several orders of magnitude in flare energy~\citep{gizis2017b, paudel2018}.
 %Why do we see rotational modulation in all cases but not in the flares? Possible solution: misalignment of rotational axis and magnetic dipole axis, like possibly in 	NLTT 33370 AB\citep{mclean2011}. See also ~\citep{pineda2017}
 %\\
 %
