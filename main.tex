@@ -240,15 +240,17 @@ Most info goes into Table~\ref{tab:stars} but we provide some details on individ
 \subsubsection{\FA}
 \label{sec:propsA}
 %TIC 277
-The dominating peak in the periodogram is at 4.56 h but there is a period at half the mean period. The flare signal is modulated by the mean period, so we adopted it as the rotation period of the star.
+\FA is an M7 dwarf. The dominating peak in the periodogram is at 4.56 h but there is a period at half the mean period. The flare signal is modulated by the mean period, so we adopted it as the rotation period of the star.
 Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/277_vsini.txt} for \FA.
 \subsubsection{\FB}
 \label{sec:propsB}
 %TIC 449
-Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt} for \FB.
+\FB is an M6 dwarf. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt} for \FB.
 
 \subsubsection{\FC}
 \label{sec:propsC}
+%TIC 237
+\FC is an M5 dwarf 
 \subsubsection{\FE}
 \label{sec:propsE}
 \subsubsection{\FF}
@@ -358,7 +360,15 @@ We constructed a likelihood function assuming that the uncertainty in flux (\tex
 % More caveats perhaps not relevant
 %Also did not account for gravitational darkening that stems from rotation and could have an effect on the contrast of the flare, and alter the geometric setup from a sphere to an ellipsoid~\citep{sengupta2010}
 \section{Results}
-We fitted our model with either one or two flares occurring on a single active region. We did not attempt to fit multiple active regions. The probability of two large flares occurring within a very short period is very low if we assume that flare times follow a Poission process in time, like it does on the Sun and most flaring stars. \textbf{Calculate the actual probability using the FFD analysis.}
+% --------------------------------------------------------
+\begin{figure*}
+	\includegraphics[width=\hsize]{figures/12_08_2020_posteriors.png}
+    \caption{Posterior distributions of model fits to multiperiod flares. a. Flaring region latitude. b. Logarithm of relative flare amplitude of the underlying flare. c. Logarithm of FWHM of underlying flare. d. Logarithm of size of the flaring region as a fraction of the total stellar surface $A$. e. Logarithm of equivalent duration of underlying flare. f. Logarithm of energy released in the course of the underlying flare in Kepler or TESS band.} 
+    \label{fig:posteriors}
+\end{figure*}
+
+We fitted our model with either one or two flares occurring on a single active region. We did not attempt to fit multiple active regions. The probability of two large flares occurring within a very short period is very low if we assume that flare times follow a Poission process in time, like it does on the Sun and most flaring stars. \textbf{Calculate the actual probability using the FFD analysis.} Consequently, the flares are likely to be sympathetic, that is, emerging from the same active region.
+/12_08_2020_posteriors.png
 \label{sec:results}
 \begin{table*}
 \centering
