@@ -220,7 +220,15 @@ We validated our results by comparing with randomly chosen spectra at $v\sin i$ 
 %xcorr for cross-correlation https://github.com/trichter/xcorr/blob/master/xcorr.py
 % spt of templates, vsini of templates
 %-----------------------------------------
+
+
+\begin{table*}
+\centering
+\caption{Properties of stars with multi-period flares.}
+\label{tab:properties}
 \input{tables/properties.tex}
+\end{table*}
+
 \subsection{Stellar Properties}
 \label{sec:props}
 To understand the flares and place them in context, we also characterized the stars they occurred on. We adopted spectral types from previous work that assigned types based on low-resolution optical spectroscopy (cite either here or in table).
@@ -241,22 +249,24 @@ Most info goes into Table~\ref{tab:stars} but we provide some details on individ
 \label{sec:propsA}
 %TIC 277
 \FA is an M7 dwarf. The dominating peak in the periodogram is at 4.56 h but there is a period at half the mean period. The flare signal is modulated by the mean period, so we adopted it as the rotation period of the star.
-Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/277_vsini.txt} for \FA.
+Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/277_vsini.txt} for \FA. \textbf{Inclination?}
 \subsubsection{\FB}
 \label{sec:propsB}
 %TIC 449
 \FB is an M6 dwarf. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt} for \FB.
-
+\textbf{Inclination?}
 \subsubsection{\FC}
 \label{sec:propsC}
 %TIC 237
 \FC is an M5 dwarf 
+\textbf{Inclination?}
 \subsubsection{\FE}
 \label{sec:propsE}
+\textbf{Inclination?}
 \subsubsection{\FF}
 \label{sec:propsF}
 The SALT spectrum for \FF was peculiar. The astrometric excess noise $\epsilon_i$ was $7$\,mas with a significance $D\approx6780$. The significance is indicative of strong disagreement between the Gaia observations, and the best-fitting standard astrometric model. $D>2$ can be interpreted as a sign of unresolved binaries or exoplanets~\citep{lindegren2012}, and in certain cases, $\epsilon_i$ can be used to infer the orbital inclination of the system~\citep{kiefer2019a, kiefer2019b}. The Ks magnitude yielded spectral type M6, but the spectrum was more indicative of an earlier spectral type. For instance, the Rb line was fairly weak.
-
+\textbf{Inclination?}
 \subsubsection{\FG}
 \label{sec:propsG}
 %-------------------------------------
@@ -359,6 +369,8 @@ We removed the dominating starspot modulation with a simple sine fit with the do
 We constructed a likelihood function assuming that the uncertainty in flux (\texttt{PDCSAP\_FLUX\_ERR}) was Gaussian. Our priors were uniform for all parameters but $i$, for which we adopted a Gaussian prior. Using the MCMC method~(\texttt{emcee},~\citealt{foreman_mackey2013}) we determined the posterior distributions of the intrinsic flare properties FWHM, $t_f$, and $a$; the properties of the flaring region, $\theta_f$ and $\phi_f$; and an updated distribution of the inclination $i$ of the star's rotation axis.
 % More caveats perhaps not relevant
 %Also did not account for gravitational darkening that stems from rotation and could have an effect on the contrast of the flare, and alter the geometric setup from a sphere to an ellipsoid~\citep{sengupta2010}
+\subsection{A3 -  10 000 K BB}
+\citet{kowalski2013} found a peak blckbody temperature of 10 000 K to be constant for different flare amplitude over two orders of magnitude
 \section{Results}
 % --------------------------------------------------------
 \begin{figure*}
@@ -368,14 +380,15 @@ We constructed a likelihood function assuming that the uncertainty in flux (\tex
 \end{figure*}
 
 We fitted our model with either one or two flares occurring on a single active region. We did not attempt to fit multiple active regions. The probability of two large flares occurring within a very short period is very low if we assume that flare times follow a Poission process in time, like it does on the Sun and most flaring stars. \textbf{Calculate the actual probability using the FFD analysis.} Consequently, the flares are likely to be sympathetic, that is, emerging from the same active region.
-/12_08_2020_posteriors.png
+
 \label{sec:results}
+
 \begin{table*}
 \centering
-\caption{Properties of multi-period flares}
+\caption{Fitted properties of multi-period flares.}
 \label{tab:stars}
 \input{tables/results.tex}
-
+Values in parentheses are the differences to the $84$th (upper) and $16$th (lower) percentiles in digits counted backwards from the displayed value ($50$th percentile).
 \end{table*}
 We fitted the flare modulation model to the data. Our results are summarized in Table \ref{tab:results}.
 \subsection{\FA}
@@ -388,12 +401,18 @@ We fitted the flare modulation model to the data. Our results are summarized in 
     \label{fig:fit\FA}
 \end{figure}
 \subsection{\FB}
-We fitted the single flare model (Fig. \ref{fig:fit\FB}), we also \textbf{fitted a model with two flares in a single active region}
+We fitted the single flare model (Fig. \ref{fig:fit\FB}), we also fitted a model with two flares in a single active region (Fig.~\ref{fig:fit2\FB}).
 \begin{figure}
 	\includegraphics[width=\columnwidth]{figures/02_08_2020_17_44_TIC44984200_flarefit_50retrievals.png}
     \caption{Single-flare fit to \FB.}
     \label{fig:fit\FB}
 \end{figure}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/04_08_2020_13_40_TIC44984200_flarefit_50retrievals.png}
+    \caption{Two-flare fit to \FB.}
+    \label{fig:fit2\FB}
+\end{figure}
+
 \subsection{\FC}
 
 % --------------------------------------------------------
@@ -411,16 +430,21 @@ This light curve contains two overlapping flares. Since the first flare's gradua
 \subsection{\FE}
 % --------------------------------------------------------
 \begin{figure}
-	\includegraphics[width=\columnwidth]{figures/13_12_2019_10_18_KIC100004076_flarefit_50retrievals.png}
+	\includegraphics[width=\columnwidth]{figures/04_08_2020_14_26_KIC100004076_flarefit_50retrievals.png}
     \caption{Flare fit to \FE.}
     \label{fig:fit\FE}
 \end{figure}
 % --------------------------------------------------------
-We recovered the extremely stable 8.9 h periodicity, measured in five Kepler quarters from \citep{gizis2013}. The flare on \FE appeared impulsive and short, but the excess flux observed during the rotation period after the impulsive rise and decay in excess of the rotational modulation was a hint that the flare could in fact have been much stronger and lasted multiple periods. However, the MCMC chain did not converge, and ended in an extreme underlying flare that \textbf{would likely have blown  up the star}~(Fig. \ref{fig:fit\FE}). \textbf{We therefore fitted the alternative model in which the short first flare is a precursor to the multiperiod flares, and not part of the modulated event of which we in fact miss the peak.}
+We recovered the extremely stable 8.9 h periodicity, measured in five Kepler quarters from \citep{gizis2013}. The flare on \FE appeared impulsive and short, but the excess flux observed during the rotation period after the impulsive rise and decay in excess of the rotational modulation was a hint that the flare could in fact have been much stronger and lasted multiple periods. However, the MCMC chain did not converge, and ended in an extreme underlying flare~(Fig. \textbf{TODO}). We therefore fitted the alternative model in which the short first flare is a precursor to the multiperiod flares, and not part of the modulated event of which we in fact miss the peak~(\ref{fig:fit\FE}).
+\\
+The TESS band ranges from $6000$\AA to $10000\AA$, and the Kepler band from $4200\AA$ to $9000\AA$, so the flare contrast was relatively larger in \FE than in the TESS targets. Still, \FE had the most gradual solution, that is, the small ration of amplitude to FWHM.
+\\
+\textbf{Which one would be more likely given its properties, like amplitude-duration ratio, total energy etc.?}
 
 \subsection{Active region radii}
-
-\textbf{We give the sizes $\omega/2$ of the flaring regions from our model fits in Fig. XXX}
+We converted angular radii $\omega/2$ of the flaring regions from our model fits to fraction of stellar surface $A/A_*$~(Table~\ref{tab:stars}). We find values between $0.02\%$ for the smallest flare on \FE, and more than $6\%$ for \FC (I). The amplitudes of our flares were between $0.08$ and $2.8$. Large mid-M dwarf flares with detected peaks in multiwavelength observations have flare surface areas of $0.003\%–0.22\%$~for flares with U band amplitudes between .5 and 200~\citep{kowalski2013}. On CN Leo, the fractional area for a flare that increased the flux in the UVES red band ($4200-10000\AA$) by a factor of 40, and $550$ in the blue band ($3000-5000\AA$) was estimated at about $0.1\%$ assuming $T_{BB}=10 000$ K~\citep{fuhrmeister2008}. An extremely large flare on an M8 dwarf that temporarily increased the brightness by almost a factor 4000 in V band had estimated $A/A_*$ ranging from $6.5\%$ to $16\%$~assuming $T_{BB}$ between 10 000 K and 16 000 K~\citep{schmidt2014}. 
+\\
+The area $A$ from which the blackbody emission originates increases during the rise phase, and is approximately constant during the decay phase. This echoes the blackbody temperature $T_{BB}$, so that and $A$ are better fit simultaneously~\citep{kowalski2013}. In this study, we assumed 10 000 K for all flares, and calculated an active region size that remains constant throughout of the flare.
 %---------------------------------------------------------------------
 \section{Discussion}
 \label{sec:discussion}
@@ -457,6 +481,8 @@ The energy distributions of white light flares in ultracool dwarfs follow power 
 %the Berger series? Will they be observable in radio, and show periodic radio flares, too? The next step is to understand the magnetic field structure and in particular if the rotation and magnetic axes are misaligned?
 \section{Summary and Conclusions}
 \label{sec:summary}
+
+We write this paper as ground work for more wholistic models of spatially resolved flare evolution. Future models will have to decide which parameters that we neglected here, are relevant for accurate representation of flares on cool dwarfs - flaring region size and geometry and its temporal evolution, etc. 
 \section*{Acknowledgements}
 
 thank helpful colleagues, acknowledge funding agencies, telescopes and facilities used
