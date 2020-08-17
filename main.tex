@@ -58,7 +58,6 @@
 \newcommand{\FD}{EPIC 212035340} %c18
 \newcommand{\FE}{KIC 100004076} %q14
 \newcommand{\FF}{TIC 300741820} %s8
-\newcommand{\FG}{TIC 230120143} %s16
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -183,9 +182,9 @@ While
 The Transiting Exoplanet Survey
 Satellite, (TESS, \citealt{ricker2015}) is Kepler's successor mission. Its goal is to observe the full sky of stars brighter than $\sim13$ mag in 2-minute or 30-minute cadence for at least $\sim$27 days each to detect planetary candidates for follow-up observations with the James Webb Space Telescope~\citep{gardner2006}. Just as with Kepler, the obtained light curves contain valuable information not only about exoplanets but also about the stars themselves, and their flaring activity in particular.
 \\
-Our primary source of long duration flares on FCUFRs observed during TESS Cycle 1 (Southern hemisphere) and Cycle 2 (Northern Hemisphere, sector 14, 15, and 16) was the G022164 guest observer program led by J. Sebastian Pineda ("Exploring The Variability Of Ultracool Dwarfs With TESS"). We searched a total of 191+74 $\sim 27$ day long light curves obtained at 2-minute cadence on 110+32 targets for rotational modulation and long duration flares, and found three candidates, \FA~(Sector 12), \FB~(Sector 10), and \FG~(Sector 16).
+Our primary source of long duration flares on FCUFRs observed during TESS Cycle 1 (Southern hemisphere) and Cycle 2 (Northern Hemisphere, sector 14, 15, and 16) was the G022164 guest observer program led by J. Sebastian Pineda ("Exploring The Variability Of Ultracool Dwarfs With TESS"). We searched a total of 191+74 $\sim 27$ day long light curves obtained at 2-minute cadence on 110+32 targets for rotational modulation and long duration flares, and found three candidates, \FA~(Sector 12) and \FB~(Sector 10).
 \\
-To complement our sample with dwarfs of types M5 and M6, we searched the sample of rapidly rotating M dwarfs with rotation periods below 4 h in TESS sectors 1 and 2 from ~\citet{zhan2019} and the M dwarf flare star sample in TESS Sectors 1-3 with rotation periods below 10 hours from~\citet{doyle2019} for flares. We found a long duration flare in \FF, Sector 8, an M6 dwarf that showed rotational modulation at 3.17 h.
+To complement our sample with dwarfs of types M5 and M6, we searched the sample of rapidly rotating M dwarfs with rotation periods below 4 h in TESS sectors 1 and 2 from ~\citet{zhan2019} and the M dwarf flare star sample in TESS Sectors 1-3 with rotation periods below 10 hours from~\citet{doyle2019} for flares. We found a long duration flare in \FF, Sector 8, an M6 dwarf that showed rotational modulation at 3.17 h, and complex, long-duration flare on \FC, and M5 dwarf observed during sector 1 with a rotation period of 8.43 h.
 \subsection{Spectroscopy}
 \label{sec:salt}
 \subsubsection{SALT Observations and Data Reduction}
@@ -258,17 +257,24 @@ Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\
 \subsubsection{\FC}
 \label{sec:propsC}
 %TIC 237
-\FC is an M5 dwarf
+\FC is an M5 dwarf 
 \textbf{Inclination?}
 \subsubsection{\FE}
 \label{sec:propsE}
+% KIC 100
+
 \textbf{Inclination?}
 \subsubsection{\FF}
 \label{sec:propsF}
-The SALT spectrum for \FF was peculiar. The astrometric excess noise $\epsilon_i$ was $7$\,mas with a significance $D\approx6780$. The significance is indicative of strong disagreement between the Gaia observations, and the best-fitting standard astrometric model. $D>2$ can be interpreted as a sign of unresolved binaries or exoplanets~\citep{lindegren2012}, and in certain cases, $\epsilon_i$ can be used to infer the orbital inclination of the system~\citep{kiefer2019a, kiefer2019b}. The Ks magnitude yielded spectral type M6, but the spectrum was more indicative of an earlier spectral type. For instance, the Rb line was fairly weak.
-\textbf{Inclination?}
-\subsubsection{\FG}
-\label{sec:propsG}
+% TIC 300
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/300741820_s8_sinusoidal.png}
+    \caption{Multi-period flare on \FF. Although the total duration of the flare covers more than a full rotation period, no significant modulation is observed. We could not derive the inclination from the SALT spectrum of \FF, and suspect that it is an unresolved astrometric binary.}
+    \label{fig:\FF}
+\end{figure}
+% --------------------------------------------------------
+The SALT spectrum for \FF showed only weak lines, and none appeared to be suited for $v \sin i$ calculation. For instance, the Rb line was fairly weak. We found that the astrometric excess noise $\epsilon_i$ was $7$\,mas with a significance $D\approx6780$. The significance is indicative of strong disagreement between the Gaia observations, and the best-fitting standard astrometric model. $D>2$ can be interpreted as a sign of unresolved binaries or exoplanets~\citep{lindegren2012}, and in certain cases, $\epsilon_i$ can be used to infer the orbital inclination of the system~\citep{kiefer2019a, kiefer2019b}. The Ks magnitude yielded spectral type M6, but the spectrum was more indicative of an earlier spectral type. Moreover, WISE W1-W2 indicate M6, but 2MASS J-K was consistent with spectral type M4~\citep{pecaut2013}. While weak lines could indicate low metallicity, the high astrometric excess noise suggests that \FF is a binary system in a close to pole-on orbit. Assuming that rotational modulation and the observed flare stem from the same component, and that the rotation axis of that star is reasonably aligned with the orbital axis, multi-period flares occurring on its surface should be weakly modulated. This is the case for the flare in question.
 %-------------------------------------
 \section{Flare modulation model}
 \label{sec:model}
@@ -375,7 +381,7 @@ We constructed a likelihood function assuming that the uncertainty in flux (\tex
 % --------------------------------------------------------
 \begin{figure*}
 	\includegraphics[width=\hsize]{figures/12_08_2020_posteriors.png}
-    \caption{Posterior distributions of model fits to multiperiod flares. a. Flaring region latitude. b. Logarithm of relative flare amplitude of the underlying flare. c. Logarithm of FWHM of underlying flare. d. Logarithm of size of the flaring region as a fraction of the total stellar surface $A$. e. Logarithm of equivalent duration of underlying flare. f. Logarithm of energy released in the course of the underlying flare in Kepler or TESS band.}
+    \caption{Posterior distributions of model fits to multiperiod flares. a. Flaring region latitude. b. Logarithm of relative flare amplitude of the underlying flare. c. Logarithm of FWHM of underlying flare. d. Logarithm of size of the flaring region as a fraction of the total stellar surface $A$. e. Logarithm of equivalent duration of underlying flare. f. Logarithm of energy released in the course of the underlying flare in Kepler or TESS band.} 
     \label{fig:posteriors}
 \end{figure*}
 
@@ -392,7 +398,8 @@ Values in parentheses are the differences to the $84$th (upper) and $16$th (lowe
 \end{table*}
 We fitted the flare modulation model to the data. Our results are summarized in Table \ref{tab:results}.
 \subsection{\FA}
-
+% TIC 277
+\FA was best fit by a single flare at $82$ degree latitude. The inferred area is large, covering about $2.5\%$ of the stellar surface, consistent with the high inclination of the star and the smooth modulation of the light curve~(Fig. \ref{fig:fit\FA}). Our model fit implies that the underlying flare had an amplitude of $\sim 2.5$, and that the peak occurred on the far side of the star. The flaring region then rotated into view during the fast decay phase, and the gradual decay emission was still observable two rotations later. The inferred flare energy released in the TESS band was $3.2\cdot 10^{34}$ erg 
 
 % --------------------------------------------------------
 \begin{figure}
@@ -400,8 +407,11 @@ We fitted the flare modulation model to the data. Our results are summarized in 
     \caption{Flare fit to \FA.}
     \label{fig:fit\FA}
 \end{figure}
+% --------------------------------------------------------
+
+
 \subsection{\FB}
-We fitted the single flare model (Fig. \ref{fig:fit\FB}), we also fitted a model with two flares in a single active region (Fig.~\ref{fig:fit2\FB}).
+We fitted the single flare model (Fig. \ref{fig:fit\FB}), we also fitted a model with two flares in a single active region (Fig.~\ref{fig:fit2\FB}). Both fits indicate that the flare(s) occurred at high latitudes, at $72$ and $86$ degrees for the one- and two-flare solutions, respectively. However, the difference in latitudes is inconsistent with the uncertainties. We suspect that the flare is complex with multiple superimposed flares that mostly affect the fast decay phase. The gradual decay phase is well fit by the one-flare solution. It is also possible that the secondary flare(s) occurred at latitudes other than the main flare, or that our circular model of flaring region geometry was an oversimplification. \textbf{But the former should be unlikely, or? Give propbability from FFD analysis of non-sympathetic flares overlapping like this.}
 \begin{figure}
 	\includegraphics[width=\columnwidth]{figures/02_08_2020_17_44_TIC44984200_flarefit_50retrievals.png}
     \caption{Single-flare fit to \FB.}
@@ -442,7 +452,7 @@ The TESS band ranges from $6000$\AA to $10000\AA$, and the Kepler band from $420
 \textbf{Which one would be more likely given its properties, like amplitude-duration ratio, total energy etc.?}
 
 \subsection{Active region radii}
-We converted angular radii $\omega/2$ of the flaring regions from our model fits to fraction of stellar surface $A/A_*$~(Table~\ref{tab:stars}). We find values between $0.02\%$ for the smallest flare on \FE, and more than $6\%$ for \FC (I). The amplitudes of our flares were between $0.08$ and $2.8$. Large mid-M dwarf flares with detected peaks in multiwavelength observations have flare surface areas of $0.003\%–0.22\%$~for flares with U band amplitudes between .5 and 200~\citep{kowalski2013}. On CN Leo, the fractional area for a flare that increased the flux in the UVES red band ($4200-10000\AA$) by a factor of 40, and $550$ in the blue band ($3000-5000\AA$) was estimated at about $0.1\%$ assuming $T_{BB}=10 000$ K~\citep{fuhrmeister2008}. An extremely large flare on an M8 dwarf that temporarily increased the brightness by almost a factor 4000 in V band had estimated $A/A_*$ ranging from $6.5\%$ to $16\%$~assuming $T_{BB}$ between 10 000 K and 16 000 K~\citep{schmidt2014}.
+We converted angular radii $\omega/2$ of the flaring regions from our model fits to fraction of stellar surface $A/A_*$~(Table~\ref{tab:stars}). We find values between $0.02\%$ for the smallest flare on \FE, and more than $6\%$ for \FC (I). The amplitudes of our flares were between $0.08$ and $2.8$. Large mid-M dwarf flares with detected peaks in multiwavelength observations have flare surface areas of $0.0015\%–0.11\%$~for flares with U band amplitudes between .5 and 200~\citep{kowalski2013}. On CN Leo, the fractional area for a flare that increased the flux in the UVES red band ($4200-10000\AA$) by a factor of 40, and $550$ in the blue band ($3000-5000\AA$) was estimated at about $0.1\%$ assuming $T_{BB}=10 000$ K~\citep{fuhrmeister2008}. An extremely large flare on an M8 dwarf that temporarily increased the brightness by almost a factor 4000 in V band had estimated $A/A_*$ ranging from $3.25\%$ to $8\%$~assuming $T_{BB}$ between 10 000 K and 16 000 K~\citep{schmidt2014}\footnote{Note that the filling factor, that is the fractional area of the projected visible hemisphere is higher than $A/A_*$ by a factor of four.}. 
 \\
 The area $A$ from which the blackbody emission originates increases during the rise phase, and is approximately constant during the decay phase. This echoes the blackbody temperature $T_{BB}$, so that and $A$ are better fit simultaneously~\citep{kowalski2013}. In this study, we assumed 10 000 K for all flares, and calculated an active region size that remains constant throughout of the flare.
 %---------------------------------------------------------------------
@@ -482,7 +492,7 @@ The energy distributions of white light flares in ultracool dwarfs follow power 
 \section{Summary and Conclusions}
 \label{sec:summary}
 
-We write this paper as ground work for more wholistic models of spatially resolved flare evolution. Future models will have to decide which parameters that we neglected here, are relevant for accurate representation of flares on cool dwarfs - flaring region size and geometry and its temporal evolution, etc.
+We write this paper as ground work for more wholistic models of spatially resolved flare evolution. Future models will have to decide which parameters that we neglected here, are relevant for accurate representation of flares on cool dwarfs - flaring region size and geometry and its temporal evolution, etc. 
 \section*{Acknowledgements}
 
 thank helpful colleagues, acknowledge funding agencies, telescopes and facilities used
