@@ -131,7 +131,7 @@ The observed morphology of a flare light curve is modulated by the flare's posit
 We searched for long duration superflares on FCUFR's in Kepler, K2, and TESS light curves and detected a total of five flares showing these modulations. We describe their properties and additional observations in Section \ref{sec:data}. We lay out a simple geometric model that generates signatures of rotationally modulated flares in Section \ref{sec:model}. The fits of our model to the data, and their interpretation are presented in Section \ref{sec:results}. Our concluding remarks and a summary can be found in Section \ref{sec:summary}.
 \section{Data and Observations}
 \label{sec:data}
-We searched the light curves of FCUFRs (spectral types $\sim$M5$-$L2, rotation periods $< 10$ d) in the Kepler, K2, and TESS archives for flares that were visible over multiple rotation periods (Section \ref{sec:photometry}). We found multiple candidates of which we chose five events on five different stars for a close investigation. Follow-up spectroscopic observations and stellar properties are detailed in Sections \ref{sec:salt} and \ref{sec:props}, respectively.
+We searched the light curves of FCUFRs (spectral types $\sim$M5$-$L2, rotation periods $< 1$ d) in the Kepler, K2, and TESS archives for flares that were visible over multiple rotation periods (Section \ref{sec:photometry}). We found seven candidates of which we chose four events on four different stars for a close investigation. Spectroscopic observations and stellar properties are detailed in Sections \ref{sec:salt} and \ref{sec:props}, respectively.
 %-------------------------------------------------------------------
 %\begin{table*}
 %\caption{Stellar parameters and multiperiod flare observations. Coordinates from~\citet{gaiacollaboration2018}.}
@@ -144,7 +144,7 @@ We searched the light curves of FCUFRs (spectral types $\sim$M5$-$L2, rotation p
 %\end{table*}
 \subsection{Photometry}
 \label{sec:photometry}
-
+We primarily worked with TESS Cycle 1 and Cycle 2 data, but we also went back to the Kepler/K2 archives to search for additional canditates. In this section we explain how we found and curated the photometric data for this study. We list the general properties of all candidates with multi-periodic light curves in Table \ref{tab:properties}. In Section \ref{sec:props} we describe the properties of the subset of these stars that we chose to investigate.
 % --------------------------------------------------------
 \begin{figure}
 	\includegraphics[width=\columnwidth]{figures/EPIC212035340_inset.png}
@@ -153,16 +153,15 @@ We searched the light curves of FCUFRs (spectral types $\sim$M5$-$L2, rotation p
 \end{figure}
 % --------------------------------------------------------
 
-
 \subsubsection{Kepler}
 \label{sec:photometryKepler}
-The Kepler (Koch et al. 2010) satellite obtained high precision photometric observations of thousands of stars in the Cygnus-Lyra region during its primary mission between 2009 and 2013. Besides being the most successful exoplanet finder mission to date, it has greatly advanced the research of physics of cool stars. For instance, the continuous monitoring at 1-minute cadence enabled the detection of energetic stellar flares on stars that were previously classified inactive from ground-based observations.
+The Kepler \citep{koch2010} satellite obtained high precision photometric observations of thousands of stars in the Cygnus-Lyra region during its primary mission between 2009 and 2013. Besides being the most successful exoplanet finder mission to date, it has greatly advanced the research of physics of cool stars. For instance, the continuous monitoring at 1-minute cadence enabled the detection of energetic stellar flares on stars that were previously classified inactive from ground-based observations.
 \\
 However
 %, there was no dedicated program to observe stars with spectral type later than M6 (ultracool dwarfs, UCDs,~\citealt{kirkpatrick1997}) with Kepler. O
-only one FCUFR, an L1 dwarf, WISEP J190848.47+401106.8, was monitored during Q10-Q17 in 30-minute cadence, and during Q14 in 1-minute cadence~\citep{gizis2013}. The star rotates at 8.9 hours.
+only one FCUFR, an L1 dwarf, WISEP J190848.47+401106.8, or \FE, was monitored during Quarters 10-17 in 30-minute cadence, and during Quarter 14 in 1-minute cadence~\citep{gizis2013}. It showed very stable rotation with $P=8.9$ h, 
 %It has different designations in each quarter: KIC 100003560 (Quarter 10), KIC 100003605 (Quarter 11), KIC100003905 (Quarter 12), KIC 100004035 (Quarter 13), and KIC100004076 (Quarter 14).
-A long-duration flare occurs in the \texttt{PDCSAP\_Flux} light curve in Quarter 14~(Fig.~\ref{fig:fit\FE}, \FE).
+and a long-duration flare occurred in the 1-minute cadence \texttt{PDCSAP\_FLUX} light curve in Quarter 14~(Fig.~\ref{fig:fit\FE}).
 \subsubsection{K2}
 \label{sec:photometryK2}
 From 2013, when two of Kepler's reaction wheels failed, and the mission was recast as K2~\citep{howell2014}, until the spacecraft ran out of fuel in 2018, almost 20 $\sim$80
@@ -172,23 +171,22 @@ Targeted observations of fully convective dwarfs took place throughout the missi
 %The first object with a superflare that was visible for 15.4 h in this series, EPIC 220186653 (Campaign 8, 30-minute cadence), an L1 dwarf, did not show any periodic modulation~\citep{gizis2017}. In a further study, two out of three UCDs were found flaring, but no long-duration flares took place during the observations~\citep{gizis2017b}. From the K2 UCDs studied in~\citet{paudel2018} three showed rotational modulation below 0.5 days, and exhibited impulsive short duration flares, but no long duration events.
 %\\
 In the study of three rapidly rotating UCDs in K2 long cadence light curves~\citep{paudel2019}, %EPIC 212027121 showed one flare in C18 that spans almost one rotation period without a clear modulation; EPIC 212136544 showed three flares in C18, each with a double peak structure on time scales comparable to its photometric period of about 7 hours; and
-\FD~(C18) showed a flare that spanned three periods of about 4.6 hours.
+\FD~(Campaign 18) showed a flare that was visible for at least three periods of about 4.6 hours.
 While
 %EPIC 212136544, and especially
-\FD~showed intriguing morphology~(Fig. \ref{fig:\FD}), we did not investigate this case further here, because its light curve was obtained in 30-minute cadence, and the target was very faint ($J\approx 16$) and thus challenging for high-resolution spectroscopy that would have been needed to determine the inclination of its rotation axis.
+\FD~showed intriguing morphology~(Fig. \ref{fig:\FD}), we did not investigate this case further here because its light curve was obtained in 30-minute cadence, that is, of lower quality than the rest of our sample, and the target was very faint ($J\approx 16$) and thus challenging for high-resolution spectroscopy that would have been needed to determine the inclination of its rotation axis.
 %The periodic modulation we find has nothing to do with the quasi-periodic oscillations observed for two large flares on Proxima Cen because its rotation period is about 83 days~\citep{vida2019}.
 \subsubsection{TESS}
 \label{sec:photometryTESS}
-The Transiting Exoplanet Survey
-Satellite, (TESS, \citealt{ricker2015}) is Kepler's successor mission. Its goal is to observe the full sky of stars brighter than $\sim13$ mag in 2-minute or 30-minute cadence for at least $\sim$27 days each to detect planetary candidates for follow-up observations with the James Webb Space Telescope~\citep{gardner2006}. Just as with Kepler, the obtained light curves contain valuable information not only about exoplanets but also about the stars themselves, and their flaring activity in particular.
+The Transiting Exoplanet Survey Satellite, (TESS, \citealt{ricker2015}) is Kepler's successor mission. Its goal is to observe the full sky of stars brighter than $\sim13$ mag in 2-minute or 30-minute cadence for at least $\sim$27 days each to detect planetary candidates for follow-up observations with the James Webb Space Telescope~\citep{gardner2006}. Just as with Kepler, the obtained light curves contain valuable information not only about exoplanets but also about the stars themselves, and their flaring activity in particular. However, the TESS band ranges from the red optical to the near infrared~($6000-10000$\AA), whereas the Kepler band was centered in the optical between $4200$\AA\; and $9000$\AA. 
 \\
-Our primary source of long duration flares on FCUFRs observed during TESS Cycle 1 (Southern hemisphere) and Cycle 2 (Northern Hemisphere, sector 14, 15, and 16) was the G022164 guest observer program led by J. Sebastian Pineda ("Exploring The Variability Of Ultracool Dwarfs With TESS"). We searched a total of 191+74 $\sim 27$ day long light curves obtained at 2-minute cadence on 110+32 targets for rotational modulation and long duration flares, and found three candidates, \FA~(Sector 12) and \FB~(Sector 10).
+Our primary source of long duration flares on FCUFRs observed during TESS Cycle 1 (Southern hemisphere) and Cycle 2 (Northern hemisphere, Sectors 14, 15, and 16) was the G022164 guest observer program led by J. Sebastian Pineda ("Exploring The Variability Of Ultracool Dwarfs With TESS"). We searched a total of 191+74 $\sim 27$ day long light curves obtained at 2-minute cadence on 110+32 targets for rotational modulation and long duration flares, and found two candidates, \FA~(Sector 12) and \FB~(Sector 10).
 \\
-To complement our sample with dwarfs of types M5 and M6, we searched the sample of rapidly rotating M dwarfs with rotation periods below 4 h in TESS sectors 1 and 2 from ~\citet{zhan2019} and the M dwarf flare star sample in TESS Sectors 1-3 with rotation periods below 10 hours from~\citet{doyle2019} for flares. We found a long duration flare in \FF, Sector 8, an M6 dwarf that showed rotational modulation at 3.17 h, and complex, long-duration flare on \FC, and M5 dwarf observed during sector 1 with a rotation period of 8.43 h.
+To complement our sample with dwarfs of types M5 and M6, we searched the sample of rapidly rotating M dwarfs with rotation periods below 4 h in TESS sectors 1 and 2 from ~\citet{zhan2019} and the M dwarf flare star sample in TESS Sectors 1-3 with rotation periods below 10 hours from~\citet{doyle2019} for flares. We found a long duration flare in \FF, Sector 8, an M6 dwarf that showed rotational modulation at 3.17 h, and a complex, long-duration flare on \FC, and M5 dwarf observed during Sector 1 with a rotation period of 8.43 h.
 \subsection{Spectroscopy}
 \label{sec:salt}
 \subsubsection{SALT Observations and Data Reduction}
-SALT observations,
+\textcolor{r}{\textbf{Katja SALT observations}}
 \\
 Data reduction was done with the PEPSI data reduction software. The detailed description is given in
 \citet{2018Strassmeier}.
@@ -210,11 +208,11 @@ to the full two-dimensional (2D) image of extracted orders.
 % --------------------------------------------------------
 
 For the $v\sin i$ inference we followed the cross-correlation procedure detailed in \citet{reiners2012}.
-The technique uses the cross-correlation functions of rotationally broadened template spectra to calibrate a relation between the FWHM of the function and $v\sin i$. We calibrated the normalized cross-correlation function using high-resolution optical CARMENES spectra of CN Leo (M6), LP 731-058 (M6.5), and Teegarden's Star (M7) for which~\citet{reiners2018} determined $v\sin i < 3$ km/s using the same method but different reference stars, and utilizing different parts of the spectrum. We broadened these three template spectra using the \texttt{eniric}~\citep{neal2019} software assuming a limb darkening coefficient $\epsilon=0.6$ in the range from $1$ to $60$ km/s with a resolution of $1$ km/s. Then we measured the FWHM to derive a calibration function for $v\sin i$.
+The technique uses the cross-correlation functions~(CCF) of rotationally broadened template spectra to calibrate a relation between the FWHM of the CCF and $v\sin i$. We calibrated the normalized CCF using high-resolution optical CARMENES spectra of CN Leo (M6), LP 731-058 (M6.5), and Teegarden's Star (M7) for which~\citet{reiners2018} determined $v\sin i < 3$ km/s using the same method but different reference stars, and utilizing different parts of the spectrum. We broadened these three template spectra using the \texttt{eniric}~\citep{neal2019} software assuming a limb darkening coefficient $\epsilon=0.6$ in the range from $1$ to $60$ km/s with a resolution of $1$ km/s. Then we measured the FWHM to derive a calibration function for $v\sin i$.
 \\
-After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$\AA surrounding the Rb 7948\AA line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sin i$ in the $10-50$ km/s range. The lower bound for our uncertainty is given by the resolution of our spectra and the sensitivity of FWHM to changes in $v\sin i$. We fit a 3rd order polynomial to the calibration function, and use the fit to propagate the uncertainty on FWHM to the resulting $v\sin i$ values~(Fig. \ref{fig:vsini}). We found uncertainties on $v\sin i$ in the $1.2-1.9$ km/s range for individual pairs of templates and spectra. Taking the average of all three templates the uncertainty naturally decreased to $0.8-1.0$ km/s.
+After inspecting the observed SALT spectra and the template CARMENES spectra, and experimenting with various regions in the red part of each spectrum we found the region $7938-7955$\AA\; surrounding the Rb 7948\AA\; line to be uniquely suited for the technique, as it was a strong line largely unaffected by telluric features which was most sensitive to changes in $v\sin i$ in the $10-50$ km/s range. The lower bound for our uncertainty is given by the resolution of our spectra and the sensitivity of FWHM to changes in $v\sin i$. We fit a 3rd order polynomial to the calibration function, and use the fit to propagate the uncertainty on FWHM to the resulting $v\sin i$ values~(Fig. \ref{fig:vsini}). We found uncertainties on $v\sin i$ in the $1.2-1.9$ km/s range for individual pairs of templates and spectra. Taking the average of all three templates the uncertainty naturally decreased to $0.8-1.0$ km/s.
 \\
-We validated our results by comparing with randomly chosen spectra at $v\sin i$ between $14$ km/s and $42$ km/s that had high-resolution optical spectra~\citep{reiners2018} listed in the CARMENES input catalog\citep{jeffers2018}\footnote{Spectra publicly available on \url{http://carmenes.cab.inta-csic.es/gto/jsp/reinersetal2018.jsp}}. We found them consistent with our results within uncertainties. From these comparisons we estimated our uncertainty on individual $v\sin i$ to be $\approx 3$ km/s.
+We validated our results by comparing with randomly chosen spectra at $v\sin i$ between $14$ km/s and $42$ km/s that had high-resolution optical spectra~\citep{reiners2018} listed in the CARMENES input catalog~\citep{jeffers2018}\footnote{Spectra publicly available on \url{http://carmenes.cab.inta-csic.es/gto/jsp/reinersetal2018.jsp}}. We found them consistent with our fits within uncertainties. From these comparisons we estimated our uncertainty on individual $v\sin i$ to be $\approx 3$ km/s.
 %eniric
 %xcorr for cross-correlation https://github.com/trichter/xcorr/blob/master/xcorr.py
 % spt of templates, vsini of templates
@@ -237,7 +235,7 @@ We validated our results by comparing with randomly chosen spectra at $v\sin i$ 
 \end{table}
 \subsection{Stellar Properties}
 \label{sec:props}
-To understand the flares and place them in context, we also characterized the stars they occurred on. We adopted spectral types from previous work that assigned types based on low-resolution optical spectroscopy (cite either here or in table).
+To understand the flares and place them in context, we characterized the stars they occurred on. We adopted spectral types from previous work that assigned types based on low-resolution optical spectroscopy (cite either here or in table).
 
 We cross-matched the list of six targets to the Two Micron All-Sky Survey \citep[2MASS;][]{Skrutskie2006} and Gaia \citep{gaiacollaboration2016} DR2 database \citep{gaiacollaboration2018} to obtain optical and infrared photometry and parallax distances. We used a cross-match radius of 10\arcsec, selecting the nearest match in each survey if more than one object fell within the matching radius. For the five objects with parallaxes in Gaia DR2, we adopt the inverse parallax as distance. For \FF, the excess of the astrometric noise was too high to use the parallax, so we calculated a distance based on the relationship between absolute $K_S$ and spectral type from \citet{dupuy2012}.
 
@@ -254,12 +252,12 @@ Most info goes into Table~\ref{tab:stars} but we provide some details on individ
 \subsubsection{\FA}
 \label{sec:propsA}
 %TIC 277
-\FA is an M7 dwarf. The dominating peak in the periodogram is at 4.56 h but there is a period at half the mean period. The flare signal is modulated by the mean period, so we adopted it as the rotation period of the star.
+\FA\; is an M7 dwarf. The dominating peak in the periodogram is at 4.56 h but there is a period at half the mean period. The flare signal is modulated by the mean period, so we adopted it as the rotation period of the star.
 Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/277_vsini.txt} for \FA. \textbf{Inclination?}
 \subsubsection{\FB}
 \label{sec:propsB}
 %TIC 449
-\FB is an M6 dwarf 11.1 pc away with $P=2.71$ h. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt} for \FB.
+\FB\; is an M6 dwarf 11.1 pc away with $P=2.71$ h. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt} for \FB.
 This yielded an inclination 
 \subsubsection{\FC}
 \label{sec:propsC}
@@ -276,12 +274,12 @@ This yielded an inclination
 % TIC 300
 % --------------------------------------------------------
 \begin{figure}
-	\includegraphics[width=\columnwidth]{figures/300741820_s8_sinusoidal.png}
-    \caption{Multi-period flare on \FF. Although the total duration of the flare covers more than a full rotation period, no significant modulation is observed. We could not derive the inclination from the SALT spectrum of \FF, and suspect that it is an unresolved astrometric binary.}
+	\includegraphics[width=\columnwidth]{figures/EPIC300741820_inset.png}
+    \caption{Multi-period flare on \FF. Although the total duration of the flare covered more than a full rotation period, no significant modulation is observed. We could not derive the inclination from the SALT spectrum of \FF, but its astrometric properties suggest that it is an unresolved astrometric binary (see Section \ref{sec:propsF}).}
     \label{fig:\FF}
 \end{figure}
 % --------------------------------------------------------
-The SALT spectrum for \FF showed only weak lines, and none appeared to be suited for $v \sin i$ calculation. For instance, the Rb line was fairly weak. We found that the astrometric excess noise $\epsilon_i$ was $7$\,mas with a significance $D\approx6780$. The significance is indicative of strong disagreement between the Gaia observations, and the best-fitting standard astrometric model. $D>2$ can be interpreted as a sign of unresolved binaries or exoplanets~\citep{lindegren2012}, and in certain cases, $\epsilon_i$ can be used to infer the orbital inclination of the system~\citep{kiefer2019a, kiefer2019b}. The Ks magnitude yielded spectral type M6, but the spectrum was more indicative of an earlier spectral type. Moreover, WISE W1-W2 indicate M6, but 2MASS J-K was consistent with spectral type M4~\citep{pecaut2013}. While weak lines could indicate low metallicity, the high astrometric excess noise suggests that \FF is a binary system in a close to pole-on orbit. Assuming that rotational modulation and the observed flare stem from the same component, and that the rotation axis of that star is reasonably aligned with the orbital axis, multi-period flares occurring on its surface should be weakly modulated. This is the case for the flare in question.
+The SALT spectrum for \FF\; showed only weak lines, and none appeared to be suited for $v \sin i$ calculation. For instance, the Rb line was fairly weak. We found that the astrometric excess noise $\epsilon_i$ was $7$\,mas with a significance $D\approx6780$. The significance is indicative of strong disagreement between the Gaia observations, and the best-fitting standard astrometric model. $D>2$ can be interpreted as a sign of unresolved binaries or exoplanets~\citep{lindegren2012}, and in certain cases, $\epsilon_i$ can be used to infer the orbital inclination of the system~\citep{kiefer2019a, kiefer2019b}. The Ks magnitude yielded spectral type M6, but the spectrum was more indicative of an earlier spectral type. Moreover, WISE W1-W2 indicate M6, but 2MASS J-K was consistent with spectral type M4~\citep{pecaut2013}. While weak lines could indicate low metallicity, the high astrometric excess noise suggests that \FF\; is a binary system in a close to pole-on orbit. Assuming that rotational modulation and the observed flare stem from the same component, and that the rotation axis of that star is reasonably aligned with the orbital axis, multi-period flares occurring on its surface should be weakly modulated. This is the case for the flare in question.
 %-------------------------------------
 \section{Flare modulation model}
 \label{sec:model}
@@ -453,8 +451,9 @@ This light curve contains two overlapping flares. Since the first flare's gradua
 \end{figure}
 % --------------------------------------------------------
 We recovered the extremely stable 8.9 h periodicity, measured in five Kepler quarters from \citep{gizis2013}. The flare on \FE appeared impulsive and short, but the excess flux observed during the rotation period after the impulsive rise and decay in excess of the rotational modulation was a hint that the flare could in fact have been much stronger and lasted multiple periods. However, the MCMC chain did not converge, and ended in an extreme underlying flare~(Fig. \textbf{TODO}). We therefore fitted the alternative model in which the short first flare is a precursor to the multiperiod flares, and not part of the modulated event of which we in fact miss the peak~(\ref{fig:fit\FE}).
+
 \\
-The TESS band ranges from $6000$\AA to $10000\AA$, and the Kepler band from $4200\AA$ to $9000\AA$, so the flare contrast was relatively larger in \FE than in the TESS targets. Still, \FE had the most gradual solution, that is, the small ration of amplitude to FWHM.
+% Still, \FE had the most gradual solution, that is, the small ratio of amplitude to FWHM. discuss difference between TESS and Kepler band 
 \\
 \textbf{Which one would be more likely given its properties, like amplitude-duration ratio, total energy etc.?}
 
