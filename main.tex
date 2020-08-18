@@ -159,7 +159,7 @@ The Kepler \citep{koch2010} satellite obtained high precision photometric observ
 \\
 However
 %, there was no dedicated program to observe stars with spectral type later than M6 (ultracool dwarfs, UCDs,~\citealt{kirkpatrick1997}) with Kepler. O
-only one FCUFR, an L1 dwarf, WISEP J190848.47+401106.8, or \FE, was monitored during Quarters 10-17 in 30-minute cadence, and during Quarter 14 in 1-minute cadence~\citep{gizis2013}. It showed very stable rotation with $P=8.9$ h, 
+only one FCUFR, an L1 dwarf, WISEP J190848.47+401106.8, or \FE, was monitored during Quarters 10-17 in 30-minute cadence, and during Quarter 14 in 1-minute cadence. It showed very stable rotation with $P=8.9$ h~\citep{gizis2013}, 
 %It has different designations in each quarter: KIC 100003560 (Quarter 10), KIC 100003605 (Quarter 11), KIC100003905 (Quarter 12), KIC 100004035 (Quarter 13), and KIC100004076 (Quarter 14).
 and a long-duration flare occurred in the 1-minute cadence \texttt{PDCSAP\_FLUX} light curve in Quarter 14~(Fig.~\ref{fig:fit\FE}).
 \subsubsection{K2}
@@ -249,26 +249,6 @@ Introduce $F_{f,s}(T_f)$ and $L_{s,q}$ (see Section \ref{ssec:flaringregion})
 
 Most info goes into Table~\ref{tab:stars} but we provide some details on individual targets below:
 
-\subsubsection{\FA}
-\label{sec:propsA}
-%TIC 277
-\FA\; is an M7 dwarf. The dominating peak in the periodogram is at 4.56 h but there is a period at half the mean period. The flare signal is modulated by the mean period, so we adopted it as the rotation period of the star.
-Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/277_vsini.txt} for \FA. \textbf{Inclination?}
-\subsubsection{\FB}
-\label{sec:propsB}
-%TIC 449
-\FB\; is an M6 dwarf 11.1 pc away with $P=2.71$ h. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt} for \FB.
-This yielded an inclination 
-\subsubsection{\FC}
-\label{sec:propsC}
-%TIC 237
-\FC is an M5 dwarf
-\textbf{Inclination?}
-\subsubsection{\FE}
-\label{sec:propsE}
-% KIC 100
-
-\textbf{Inclination?}
 \subsubsection{\FF}
 \label{sec:propsF}
 % TIC 300
@@ -280,6 +260,27 @@ This yielded an inclination
 \end{figure}
 % --------------------------------------------------------
 The SALT spectrum for \FF\; showed only weak lines, and none appeared to be suited for $v \sin i$ calculation. For instance, the Rb line was fairly weak. We found that the astrometric excess noise $\epsilon_i$ was $7$\,mas with a significance $D\approx6780$. The significance is indicative of strong disagreement between the Gaia observations, and the best-fitting standard astrometric model. $D>2$ can be interpreted as a sign of unresolved binaries or exoplanets~\citep{lindegren2012}, and in certain cases, $\epsilon_i$ can be used to infer the orbital inclination of the system~\citep{kiefer2019a, kiefer2019b}. The Ks magnitude yielded spectral type M6, but the spectrum was more indicative of an earlier spectral type. Moreover, WISE W1-W2 indicate M6, but 2MASS J-K was consistent with spectral type M4~\citep{pecaut2013}. While weak lines could indicate low metallicity, the high astrometric excess noise suggests that \FF\; is a binary system in a close to pole-on orbit. Assuming that rotational modulation and the observed flare stem from the same component, and that the rotation axis of that star is reasonably aligned with the orbital axis, multi-period flares occurring on its surface should be weakly modulated. This is the case for the flare in question.
+
+\subsubsection{\FC}
+\label{sec:propsC}
+%TIC 237
+\FC\; is our earlierst type FCUFR, an M5 dwarf at a distance of 46 pc. We measured a rotation period of 8.43 h in its TESS light curve, and used the catalogued $v\sin i=14.4\pm2.6$ km/s~\citep{kraus2014} to derive an inclination of $21.3\pm2.3$ degrees. 
+\subsubsection{\FB}
+\label{sec:propsB}
+%TIC 449
+\FB\;was first discovered as the high proper motion star SCR J0838-5855~\citep{finch2007}. It is an M6 dwarf 11.1 pc away rotating at $P=2.71$ h. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt} for \FB, and an inclination of $33.1\pm1.6$ degrees. 
+
+\subsubsection{\FA}
+\label{sec:propsA}
+%TIC 277
+\FA\; is an M7 dwarf 13.7 pc away. The dominating peak in the periodogram of its TESS light curve was at 4.56 h with a secondary peak at half of this period. Since the flare signal was modulated by the longer period, we adopted it as the rotation period of the star. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/277_vsini.txt} for \FA, and a high inclination of about $87.1\pm2.4$ degrees. 
+
+\subsubsection{\FE}
+\label{sec:propsE}
+% KIC 100
+\FE\; is the latest type specimen in our sample, an L1 dwarf observed by the original Kepler mission. Its light curve showed a very stable 8.9 h rotation period throughout the five Quarters of Kepler observations~\citep{gizis2013}. \citet{gizis2013} obtained $v\sin i = 11.2\pm2.2$ km/s by fitting a parametrized model to a near-infrared spectrum of \FE, and used it to derive a median inclination of 56 degrees with a heavy tail towards higher inclinations (5th and 95th percentile at 50 and 78 deg, respectively). They used a distance of $16.35 \pm^{0.36}_{0.34}$ pc from ground based parallax measurements. We reproduced their analysis with the improved Gaia distance of $16.8\pm0.04$ pc, and found $i=57.4 \pm 6.5$ deg. As in \citet{gizis2013}, the main source of uncertainty was $v\sin i$, but the tail was less heavy (5th and 95th percentiles of the posterior distribution were at 48 and 73 deg, respectively).
+% 18_08_2020_KIC1000_MCMC_uninformative_gaia_2800_steps.csv for 72.3 degrees
+
 %-------------------------------------
 \section{Flare modulation model}
 \label{sec:model}
@@ -402,31 +403,6 @@ We fitted our model with either one or two flares occurring on a single active r
 Values in parentheses are the differences to the $84$th (upper) and $16$th (lower) percentiles in digits counted backwards from the displayed value ($50$th percentile).
 \end{table*}
 We fitted the flare modulation model to the data. Our results are summarized in Table \ref{tab:results}.
-\subsection{\FA}
-% TIC 277
-\FA was best fit by a single flare at $82$ degree latitude. The inferred area is large, covering about $2.5\%$ of the stellar surface, consistent with the high inclination of the star and the smooth modulation of the light curve~(Fig. \ref{fig:fit\FA}). Our model fit implies that the underlying flare had an amplitude of $\sim 2.5$, and that the peak occurred on the far side of the star. The flaring region then rotated into view during the fast decay phase, and the gradual decay emission was still observable two rotations later. The inferred flare energy released in the TESS band was $3.2\cdot 10^{34}$ erg
-
-% --------------------------------------------------------
-\begin{figure}
-	\includegraphics[width=\columnwidth]{figures/08_07_2020_11_48_TIC277539431_flarefit_50retrievals.png}
-    \caption{Flare fit to \FA.}
-    \label{fig:fit\FA}
-\end{figure}
-% --------------------------------------------------------
-
-
-\subsection{\FB}
-We fitted the single flare model (Fig. \ref{fig:fit\FB}), we also fitted a model with two flares in a single active region (Fig.~\ref{fig:fit2\FB}). Both fits indicate that the flare(s) occurred at high latitudes, at $72$ and $86$ degrees for the one- and two-flare solutions, respectively. However, the difference in latitudes is inconsistent with the uncertainties. We suspect that the flare is complex with multiple superimposed flares that mostly affect the fast decay phase. The gradual decay phase is well fit by the one-flare solution. It is also possible that the secondary flare(s) occurred at latitudes other than the main flare, or that our circular model of flaring region geometry was an oversimplification. \textbf{But the former should be unlikely, or? Give propbability from FFD analysis of non-sympathetic flares overlapping like this.}
-\begin{figure}
-	\includegraphics[width=\columnwidth]{figures/02_08_2020_17_44_TIC44984200_flarefit_50retrievals.png}
-    \caption{Single-flare fit to \FB.}
-    \label{fig:fit\FB}
-\end{figure}
-\begin{figure}
-	\includegraphics[width=\columnwidth]{figures/04_08_2020_13_40_TIC44984200_flarefit_50retrievals.png}
-    \caption{Two-flare fit to \FB.}
-    \label{fig:fit2\FB}
-\end{figure}
 
 \subsection{\FC}
 
@@ -440,8 +416,32 @@ We fitted the single flare model (Fig. \ref{fig:fit\FB}), we also fitted a model
 This light curve contains two overlapping flares. Since the first flare's gradual decay adds to the overall flux in the second flare we fitted both flares simultaneously.
 \\
 \citet{gizis2017b} discussed the possibility of sympathetic flaring in ultracool dwarfs that is triggered by fast mode MHD waves excited by the first flare that propagates across an inhomogeneous corona to trigger a second flare, as is the case on the Sun~\citep{uchida1968}. They concluded that such flares are characterized by a time separation between flares that is inconsistent with a Poisson process, and a lower amplitude second flare. The flares in \FC have both traits. However, the flares are separated by 3-4 hours which suggests travel speeds of less than 40 km/s pole to pole, lower than the lowest observed speeds on the Sun at 200 km/s. Futhermore, on the Sun these waves are driven by erupting CMEs which are suppressed by strong dipolar large scale fields of mid-M dwarfs~\citep{alvaradogomez2018} (but in a 75G large scale field >3e32 erg flares can overcome the suppression and erupt anyways.)
+\subsection{\FB}
+The flare on \FB was visible for almost five rotation periods. While the flux appeared modulated, the flaring region never fully rotated out of view, indicating a latitude significantly above the inclination value of 33 degrees. We fitted the single flare model (Fig. \ref{fig:fit\FB}), and a model with two flares that occur on a single active region (Fig.~\ref{fig:fit2\FB}). Both fits indicated that the flare(s) occurred at high latitudes, at $72$ and $86$ degrees for the one- and two-flare solutions, respectively. However, the difference in latitudes is inconsistent with the uncertainties for each solution~(Fig.~\ref{fig:posteriors}). We suspect that the flare was complex, with multiple superimposed flares that mostly affected the fast decay phase. The gradual decay phase was well fit by the one-flare solution. It is also possible that the secondary flare(s) occurred at latitudes other than the main flare, or that our circular model of flaring region geometry was an oversimplification. \textbf{But the former should be unlikely, or? Give propbability from FFD analysis of non-sympathetic flares overlapping like this.}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/02_08_2020_17_44_TIC44984200_flarefit_50retrievals.png}
+    \caption{Single-flare fit to \FB.}
+    \label{fig:fit\FB}
+\end{figure}
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/04_08_2020_13_40_TIC44984200_flarefit_50retrievals.png}
+    \caption{Two-flare fit to \FB.}
+    \label{fig:fit2\FB}
+\end{figure}
+\subsection{\FA}
+% TIC 277
+The flare on \FA lasted for more than three rotation periods. The flare flux disappeared and reappeared \FA at least two times after the main peak, but only briefly and smoothly, suggesting an active region latitude somewhat below the inclination value of 87 degrees. Indeed, the signal was best fit by a single flare that occurred at $82$ degree latitude. The inferred area is large, covering about $2.5\%$ of the stellar surface, consistent with the high inclination of the star and the smooth modulation of the light curve~(Fig. \ref{fig:fit\FA}). Our model fit implies that the underlying flare had an amplitude of $\sim 2.5$, and that the peak occurred on the far side of the star. The flaring region then rotated into view during the fast decay phase, and the gradual decay emission was still observable two rotations later. The inferred flare energy released in the TESS band was $3.2\cdot 10^{34}$ erg
 
-%\subsection{\FD}
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/08_07_2020_11_48_TIC277539431_flarefit_50retrievals.png}
+    \caption{Flare fit to \FA.}
+    \label{fig:fit\FA}
+\end{figure}
+% --------------------------------------------------------
+
+
+
 \subsection{\FE}
 % --------------------------------------------------------
 \begin{figure}
