@@ -132,16 +132,7 @@ We searched for long duration superflares on FCUFR's in Kepler, K2, and TESS lig
 \section{Data and Observations}
 \label{sec:data}
 We searched the light curves of FCUFRs (spectral types $\sim$M5$-$L2, rotation periods $< 1$ d) in the Kepler, K2, and TESS archives for flares that were visible over multiple rotation periods (Section \ref{sec:photometry}). We found seven candidates of which we chose four events on four different stars for a close investigation. Spectroscopic observations and stellar properties are detailed in Sections \ref{sec:salt} and \ref{sec:props}, respectively.
-%-------------------------------------------------------------------
-%\begin{table*}
-%\caption{Stellar parameters and multiperiod flare observations. Coordinates from~\citet{gaiacollaboration2018}.}
-% $a$ is the amplitude of the sine fit to the light curve relative to the median flux.
-%\label{tab:observations}
-%\input{tables/lcs.tex}
-%\hline
-%\multicolumn{10}{l}{$^a$ \citet{gizis2013}}\\
-%\end{tabular}
-%\end{table*}
+
 \subsection{Photometry}
 \label{sec:photometry}
 We primarily worked with TESS Cycle 1 and Cycle 2 data, but we also went back to the Kepler/K2 archives to search for additional canditates. In this section we explain how we found and curated the photometric data for this study. We list the general properties of all candidates with multi-periodic light curves in Table \ref{tab:properties}. In Section \ref{sec:props} we describe the properties of the subset of these stars that we chose to investigate.
@@ -268,7 +259,7 @@ Before being revealed to be an FCUFR ($P=3.17$ h) by TESS~\citep{zhan2019}, \FF\
 \subsubsection{\FB}
 \label{sec:propsB}
 %TIC 449
-\FB\;was first discovered as the high proper motion star SCR J0838-5855~\citep{finch2007}. It is an M6 dwarf 11.1 pc away rotating at $P=2.71$, and showing no long-term variability otherwise, at least in the I band~\citep{hosey2015}. No absorption was detected in the Lithium resonance line at $6708$\,\AA\; indicating that it is a star and not a brown dwarf~\citep{phanbao2017}. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt}, and an inclination of $33.1\pm1.6$ deg for \FB. 
+\FB\;was first discovered as the high proper motion star SCR J0838-5855~\citep{finch2007}. It is an M6 dwarf 11.1 pc away rotating at $P=2.71$, and showing no long-term variability otherwise in the I band for a period of 7 years between 2005 and 2012~\citep{hosey2015}. No absorption was detected in the Lithium resonance line at $6708$\,\AA\; indicating that it is a star and not a brown dwarf~\citep{phanbao2017}. Using the method described in Section \ref{subsec:vsini}, we derived $v\sin i=$\input{values/449_vsini.txt}, and an inclination of $33.1\pm1.6$ deg for \FB. 
 
 \subsubsection{\FA}
 \label{sec:propsA}
@@ -466,16 +457,48 @@ The area $A$ from which the blackbody emission originates increases during the r
 \label{sec:discussion}
 
 \subsection{Do flares in FCUFRs occur at the poles?}
+%-------------------------------------------------------------------
+%\begin{table*}
+%\caption{Qualitative detectability assessment for extreme combinations of inclination $i$ and flare latitude $\theta_f$.}
+%\begin{tabular}{lcr}
+%\hline\hline
+%  & high $i$ (equator-on view) & low $i$ (pole-on view)\\
+%\hline
+%high $\theta_f$ (polar flare) & bad visibility, varying modulation & good visibility, low modulation \\
+%low $\theta_f$ (equatorial flare) & good visibility, clear modulation & bad visibility, varying modulation \\
+%\hline
+%\end{tabular}
+%\end{table*}
+
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/
+237880881_21_deg_latitude_flare_compilation_scatter_2.png}
+    \caption{Flares with the same FWHM, and $a=1$, injected at diffent phases of the light curve and at different latitudes onto a star with $i=21$ deg. Red: Amplitude of the detected primary peak. Magenta: Amplitude of the detected secondary peak.}
+    \label{fig:discuss_low_lat}
+\end{figure}
+% --------------------------------------------------------
+
+% --------------------------------------------------------
+\begin{figure}
+	\includegraphics[width=\columnwidth]{figures/277539431_87_deg_latitude_flare_compilation_scatter_2.png}
+    \caption{Flares with the same FWHM, and $a=1$, injected at diffent phases of the light curve and at different latitudes onto a star with $i=87$ deg. Red: Amplitude of the detected primary peak. Magenta: Amplitude of the detected secondary peak.}
+    \label{fig:discuss_high_lat}
+\end{figure}
+% --------------------------------------------------------
 Our results suggest that large gradual flares on stars with a large dominating spot prefer to occur at high latitudes. Potentially, the occurrence of such flares and the presence of such spots are physically related.
 
-Given the small number of such flares, it could also be a selection effect. If flares on FCUFRs occur at all latitudes, it could just be that detectability of multiperiod flares is lower for low-latitude flares. Assuming that $i$ is uniformly distributed we find low detectability at the equator at low inclinations if the primary peak is less pronounced, and low detectability at high inclinations if the secondary peak is confused for an independent event because the the secondary peak is separated by a full half period from the primary peak. On the other hand, low detectability at the pole is found at high inclination because the primary peak height is geometrically reduced, and at low inclination because the secondary peak is less pronounced because the geometrical modulation declines.
+However, given the small number of detections, it could also be a selection effect. If flares on FCUFRs occur at all latitudes equally likely, it could just be that detectability of multiperiod flares is lower for low-latitude flares. Assuming that $i$ is uniformly distributed we find low detectability can stem from flaring at the limb, and therefore being less visible in general, or absence of rotational modulation of the star. We would only find periodically modulated flares on stars without rotational variability if they were modulated, whereas we can identify multi-period flares that are both modulated and not modulated on stars that show rotational variability. In Figs. \ref{fig:discuss_low_lat} and \ref{fig:discuss_high_lat} we demonstrate how the same underlying flare appears in a light curve for a star that is seen at low and high inclination, respectively. We injected flares at different phases of the stellar rotation, that is, starting, for instance, behind the limb or facing the observer, and measured their primary and secondary peaks. 
 
-
-Another explanation could be that flares close to the equator occur on active regions with shapes that are not modulated by rotation, as, for instance, active belt shapes at fixed latitudes. Alternatively, equatorial flares may light up the entire stellar atmosphere thereby precluding any modulation. However, we did not find any periodically modulated flares on stars without clean sinusoidal variability.
-
+%\end{itemize}
+%at the equator at low inclinations if the primary peak is less pronounced, and low detectability at high inclinations if the secondary peak is confused for an independent event because the the secondary peak is separated by a full half period from the primary peak. On the other hand, low detectability at the pole is found at high inclination because the primary peak height is geometrically reduced, and at low inclination because the secondary peak is less pronounced because the geometrical modulation declines.
+\\
+Another explanation could be that flares close to the equator occur on active regions with shapes that are not modulated by rotation, as, for instance, active belt shapes at fixed latitudes. 
 A further possibility is that TESS cannot detect low-latitude flares because they are much hotter than 10 000 K so that the TESS band cannot detect them.
-
+\\
 It may also be that flares close to the equator are mostly much more impulsive and do not become multiperiodic. This raises the question why are polar flares more likely to be so gradual? Is this a feature of large polar spots in contrast with more evenly distributed active region as we infer for mid-M dwarfs? One way of adressing this question is to look at the distributions of flare properties on our targets. Several of them exhibit smaller and more impulsive flares in the same light curve, and also in different sectors.
+
+
 \subsection{FFD analysis of FCUFR light curves}
 
 Do the multiperiod flares fit in with the FFDs for the rest of the flare sample in each target?
